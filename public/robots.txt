@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sensus.website/sitemap.xml
