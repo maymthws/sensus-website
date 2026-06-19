@@ -5,7 +5,7 @@ import { siteConfig } from "@/lib/config";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Apply to demo at SENSUS, partner with us, or join the community.",
+  description: "Get in touch with SENSUS — partnerships, press, community.",
 };
 
 const channels = [

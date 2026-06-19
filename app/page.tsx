@@ -1,7 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { Section, SectionHeading } from "@/components/Section";
-import { events } from "@/lib/events";
 import { siteConfig } from "@/lib/config";
 
 export const metadata: Metadata = {
@@ -53,8 +52,6 @@ const stats = [
 ];
 
 export default function HomePage() {
-  const upcoming = events.find((e) => e.status === "Upcoming");
-
   return (
     <>
       {/* ───────── HERO ───────── */}
@@ -116,11 +113,8 @@ export default function HomePage() {
           </p>
 
           <div className="mt-10 flex flex-wrap justify-center gap-3 reveal">
-            <Link href="/contact" className="btn btn-primary">
-              Apply to demo <span className="arrow">→</span>
-            </Link>
-            <Link href="/spotlight" className="btn btn-ghost">
-              Watch past sessions
+            <Link href="/spotlight" className="btn btn-primary">
+              Watch past sessions <span className="arrow">→</span>
             </Link>
           </div>
 
@@ -307,38 +301,7 @@ export default function HomePage() {
         </div>
       </Section>
 
-      {/* ───────── CTA ───────── */}
-      {upcoming && (
-        <Section>
-          <div className="chrome-surface text-center p-12 sm:p-20 relative overflow-hidden">
-            <div
-              aria-hidden
-              className="absolute inset-0 pointer-events-none"
-              style={{
-                background:
-                  "radial-gradient(ellipse 800px 400px at 50% 0%, rgba(216,227,243,0.4), transparent 60%)",
-              }}
-            />
-            <div className="relative">
-              <span className="eyebrow">Next edition</span>
-              <h2 className="mt-4 font-display text-[var(--ink-900)] text-balance max-w-3xl mx-auto">
-                {upcoming.title} — applications close soon.
-              </h2>
-              <p className="mt-6 max-w-2xl mx-auto text-[var(--ink-500)] text-pretty leading-relaxed">
-                {upcoming.summary}
-              </p>
-              <div className="mt-8 flex flex-wrap justify-center gap-3">
-                <Link href="/contact" className="btn btn-primary">
-                  Apply to demo <span className="arrow">→</span>
-                </Link>
-                <Link href="/events" className="btn btn-ghost">
-                  See event details
-                </Link>
-              </div>
-            </div>
-          </div>
-        </Section>
-      )}
+      {/* Next edition teaser handled in stats block above — no CTA section */}
     </>
   );
 }

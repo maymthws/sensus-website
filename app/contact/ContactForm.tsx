@@ -6,7 +6,6 @@ import { siteConfig } from "@/lib/config";
 type Status = "idle" | "submitting" | "success" | "error";
 
 const interests = [
-  "Demo at an upcoming edition",
   "Partner / sponsor an edition",
   "Join the community",
   "Press / media",

@@ -61,13 +61,6 @@ export function Navbar() {
             })}
           </div>
           <div className="flex items-center gap-2">
-            <Link
-              href="/contact"
-              className="btn btn-primary hidden sm:inline-flex text-sm"
-              style={{ padding: "10px 18px" }}
-            >
-              Apply to demo <span className="arrow">→</span>
-            </Link>
             <button
               type="button"
               aria-label="Toggle menu"
@@ -122,12 +115,6 @@ export function Navbar() {
                   </Link>
                 );
               })}
-              <Link
-                href="/contact"
-                className="mt-2 btn btn-primary justify-center"
-              >
-                Apply to demo <span className="arrow">→</span>
-              </Link>
             </nav>
           </div>
         )}

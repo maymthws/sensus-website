@@ -21,7 +21,6 @@ export function Footer() {
               <Link href="/events" className="text-sm text-[var(--ink-500)] hover:text-[var(--ink-900)]">Events</Link>
               <Link href="/spotlight" className="text-sm text-[var(--ink-500)] hover:text-[var(--ink-900)]">Project Spotlight</Link>
               <Link href="/community" className="text-sm text-[var(--ink-500)] hover:text-[var(--ink-900)]">Community</Link>
-              <Link href="/contact" className="text-sm text-[var(--ink-500)] hover:text-[var(--ink-900)]">Apply to demo</Link>
             </div>
           </div>
           <div>
@@ -45,7 +44,6 @@ export function Footer() {
               Next edition
             </h5>
             <div className="flex flex-col gap-2.5">
-              <Link href="/contact" className="text-sm text-[var(--ink-500)] hover:text-[var(--ink-900)]">Apply to demo</Link>
               <Link href="/contact" className="text-sm text-[var(--ink-500)] hover:text-[var(--ink-900)]">Partner with SENSUS</Link>
               <Link href="/contact" className="text-sm text-[var(--ink-500)] hover:text-[var(--ink-900)]">Press &amp; media</Link>
             </div>

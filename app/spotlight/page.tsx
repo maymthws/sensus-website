@@ -123,19 +123,16 @@ export default async function SpotlightPage() {
 
       <Section className="!pt-0">
         <div className="chrome-surface text-center p-12 sm:p-16">
-          <span className="eyebrow">Submit your project</span>
+          <span className="eyebrow">From the spotlight</span>
           <h2 className="mt-4 font-display text-[var(--ink-900)] text-balance">
-            Want to be the next one featured?
+            Every demo, on the record.
           </h2>
           <p className="mt-4 max-w-xl mx-auto text-[var(--ink-500)] text-pretty">
-            Applications open before every edition. Real traction, real product, real story.
+            Subscribe to the SENSUS YouTube channel for full recordings, dropped within 72 hours of every edition.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <Link href="/contact" className="btn btn-primary">
-              Apply to demo <span className="arrow">→</span>
-            </Link>
-            <Link href="/events" className="btn btn-ghost">
-              See upcoming dates
+            <Link href={siteConfig.social.youtube} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+              Subscribe on YouTube <span className="arrow">→</span>
             </Link>
           </div>
         </div>
