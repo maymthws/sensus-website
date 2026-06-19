@@ -1,15 +1,25 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export function Logo({
   size = "md",
   asLink = true,
+  showText = true,
 }: {
-  size?: "sm" | "md" | "lg";
+  size?: "sm" | "md" | "lg" | "xl";
   asLink?: boolean;
+  showText?: boolean;
 }) {
-  const dim = size === "sm" ? 28 : size === "lg" ? 48 : 32;
+  const dim =
+    size === "sm" ? 28 : size === "lg" ? 56 : size === "xl" ? 96 : 32;
   const textSize =
-    size === "sm" ? "text-sm" : size === "lg" ? "text-xl" : "text-base";
+    size === "sm"
+      ? "text-sm"
+      : size === "lg"
+      ? "text-xl"
+      : size === "xl"
+      ? "text-2xl"
+      : "text-base";
 
   const content = (
     <span className="inline-flex items-center gap-2.5 group">
@@ -18,46 +28,22 @@ export function Logo({
         className="relative inline-block"
         style={{ width: dim, height: dim }}
       >
-        <svg viewBox="0 0 64 64" className="w-full h-full">
-          <defs>
-            <linearGradient
-              id="lg-chrome"
-              x1="0"
-              y1="0"
-              x2="64"
-              y2="64"
-              gradientUnits="userSpaceOnUse"
-            >
-              <stop offset="0" stopColor="#ffffff" />
-              <stop offset=".25" stopColor="#c8d3e3" />
-              <stop offset=".5" stopColor="#5a6878" />
-              <stop offset=".75" stopColor="#c8d3e3" />
-              <stop offset="1" stopColor="#ffffff" />
-            </linearGradient>
-          </defs>
-          <path
-            d="M20 12c-6 0-11 5-11 11v18c0 6 5 11 11 11h24c6 0 11-5 11-11V23c0-6-5-11-11-11H20z"
-            stroke="url(#lg-chrome)"
-            strokeWidth="3"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            fill="rgba(255,255,255,0.4)"
-          />
-          <path
-            d="M28 22c-3 0-5 2.2-5 5v10c0 2.8 2 5 5 5h8c2.8 0 5-2.2 5-5V27c0-2.8-2.2-5-5-5h-8z"
-            stroke="url(#lg-chrome)"
-            strokeWidth="2.4"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-          <circle cx="36" cy="32" r="1.8" fill="#ffffff" />
-        </svg>
+        <Image
+          src="/logo-s.png"
+          alt="SENSUS"
+          width={dim * 2}
+          height={dim * 2}
+          priority
+          className="w-full h-full object-contain transition-transform group-hover:scale-105"
+        />
       </span>
-      <span
-        className={`${textSize} font-display font-semibold tracking-[0.12em] text-[var(--ink-900)]`}
-      >
-        SENSUS
-      </span>
+      {showText && (
+        <span
+          className={`${textSize} font-display font-semibold tracking-[0.12em] text-[var(--ink-900)]`}
+        >
+          SENSUS
+        </span>
+      )}
     </span>
   );
 
