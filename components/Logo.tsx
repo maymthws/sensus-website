@@ -7,14 +7,9 @@ export function Logo({
   size?: "sm" | "md" | "lg";
   asLink?: boolean;
 }) {
-  const dim =
-    size === "sm" ? 28 : size === "lg" ? 56 : 36;
-  const text =
-    size === "sm"
-      ? "text-base"
-      : size === "lg"
-      ? "text-2xl"
-      : "text-lg";
+  const dim = size === "sm" ? 28 : size === "lg" ? 48 : 32;
+  const textSize =
+    size === "sm" ? "text-sm" : size === "lg" ? "text-xl" : "text-base";
 
   const content = (
     <span className="inline-flex items-center gap-2.5 group">
@@ -33,11 +28,11 @@ export function Logo({
               y2="64"
               gradientUnits="userSpaceOnUse"
             >
-              <stop offset="0" stopColor="#f6f9fc" />
-              <stop offset=".25" stopColor="#c7d3de" />
-              <stop offset=".5" stopColor="#6c7a88" />
-              <stop offset=".75" stopColor="#c7d3de" />
-              <stop offset="1" stopColor="#f6f9fc" />
+              <stop offset="0" stopColor="#ffffff" />
+              <stop offset=".25" stopColor="#c8d3e3" />
+              <stop offset=".5" stopColor="#5a6878" />
+              <stop offset=".75" stopColor="#c8d3e3" />
+              <stop offset="1" stopColor="#ffffff" />
             </linearGradient>
           </defs>
           <path
@@ -46,6 +41,7 @@ export function Logo({
             strokeWidth="3"
             strokeLinecap="round"
             strokeLinejoin="round"
+            fill="rgba(255,255,255,0.4)"
           />
           <path
             d="M28 22c-3 0-5 2.2-5 5v10c0 2.8 2 5 5 5h8c2.8 0 5-2.2 5-5V27c0-2.8-2.2-5-5-5h-8z"
@@ -54,11 +50,11 @@ export function Logo({
             strokeLinecap="round"
             strokeLinejoin="round"
           />
-          <circle cx="36" cy="32" r="1.8" fill="#f6f9fc" />
+          <circle cx="36" cy="32" r="1.8" fill="#ffffff" />
         </svg>
       </span>
       <span
-        className={`${text} font-display font-semibold tracking-[0.18em] uppercase chrome-text`}
+        className={`${textSize} font-display font-semibold tracking-[0.12em] text-[var(--ink-900)]`}
       >
         SENSUS
       </span>
@@ -69,7 +65,7 @@ export function Logo({
   return (
     <Link
       href="/"
-      className="inline-flex items-center transition-opacity hover:opacity-90"
+      className="inline-flex items-center transition-opacity hover:opacity-80"
     >
       {content}
     </Link>

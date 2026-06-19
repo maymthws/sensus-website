@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { RevealOnScroll } from "@/components/RevealOnScroll";
 import { siteConfig } from "@/lib/config";
 
 export const metadata: Metadata = {
@@ -10,8 +11,7 @@ export const metadata: Metadata = {
     default: "SENSUS — A curated gathering for the Web3 ecosystem",
     template: "%s · SENSUS",
   },
-  description:
-    "SENSUS brings builders and strategic partners together through high-signal conversations, exclusive showcases, and real connections designed to grow into long-term relationships.",
+  description: siteConfig.description,
   keywords: [
     "SENSUS",
     "Web3",
@@ -24,22 +24,17 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     title: "SENSUS — A curated gathering for the Web3 ecosystem",
-    description:
-      "SENSUS brings builders and strategic partners together through high-signal conversations, exclusive showcases, and real connections.",
+    description: siteConfig.description,
     url: siteConfig.url,
     siteName: "SENSUS",
-    images: [{ url: "/og.png", width: 1200, height: 630, alt: "SENSUS" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "SENSUS — A curated gathering for the Web3 ecosystem",
-    description:
-      "High-signal Web3 gatherings, curated showcases, real connections.",
-    images: ["/og.png"],
+    description: siteConfig.description,
   },
-  icons: {
-    icon: "/favicon.svg",
-  },
+  icons: { icon: "/favicon.svg" },
+  themeColor: "#ffffff",
 };
 
 export default function RootLayout({
@@ -48,20 +43,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="dark">
-      <body className="min-h-screen text-sensus-50 font-body antialiased">
-        <div className="relative isolate">
-          <div
-            aria-hidden
-            className="pointer-events-none fixed inset-0 -z-10 grid-bg opacity-50"
-          />
-          <div
-            aria-hidden
-            className="pointer-events-none fixed inset-0 -z-10 bg-radial-spotlight"
-          />
+    <html lang="en">
+      <body className="min-h-screen font-body antialiased">
+        <div className="aurora-bg" aria-hidden="true" />
+        <div className="relative">
           <Navbar />
           <main className="relative">{children}</main>
           <Footer />
+          <RevealOnScroll />
         </div>
       </body>
     </html>

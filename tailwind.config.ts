@@ -8,69 +8,98 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Brand: metallic silver / chrome on near-black
+        // Light / airy base
         sensus: {
-          50: "#f5f7f9",
-          100: "#e3e8ed",
-          200: "#c7d0d8",
-          300: "#a4b0bc",
-          400: "#7d8a98",
-          500: "#5d6a78",
-          600: "#3f4a56",
-          700: "#2b343c",
-          800: "#1a2128",
-          900: "#0d1217",
-          950: "#06090c",
+          50: "#ffffff",
+          100: "#fafbfd",
+          200: "#f4f6fb",
+          300: "#eef2f8",
+          400: "#e6e9f0",
+          500: "#d4d9e3",
+          // ink (text)
+          ink: {
+            900: "#0b0d12",
+            700: "#1f242e",
+            500: "#5b6373",
+            400: "#8089a0",
+            300: "#aab2c2",
+          },
+          // chrome / silver
+          chrome: {
+            1: "#ffffff",
+            2: "#e9eef6",
+            3: "#c8d3e3",
+            4: "#8a98b0",
+            5: "#5a6878",
+          },
         },
-        accent: {
-          // Cool steel-blue tint pulled from the chrome reflections
-          DEFAULT: "#c4d0dc",
-          strong: "#e6eef6",
-          muted: "#8a98a6",
+        // Soft aurora accents
+        aurora: {
+          1: "#d8e3f3", // soft blue
+          2: "#c5d5ee",
+          3: "#e8d8f3", // soft lavender
+          4: "#d3e9e4", // mint hint
         },
       },
       fontFamily: {
-        display: ["var(--font-display)", "ui-sans-serif", "system-ui"],
-        body: ["var(--font-body)", "ui-sans-serif", "system-ui"],
-        mono: ["ui-monospace", "SFMono-Regular", "monospace"],
+        display: [
+          "var(--font-display)",
+          "Inter",
+          "ui-sans-serif",
+          "system-ui",
+          "sans-serif",
+        ],
+        body: [
+          "var(--font-body)",
+          "Inter",
+          "ui-sans-serif",
+          "system-ui",
+          "sans-serif",
+        ],
       },
       backgroundImage: {
-        "chrome-grad":
-          "linear-gradient(135deg, #f6f9fc 0%, #c7d3de 25%, #6c7a88 50%, #c7d3de 75%, #f6f9fc 100%)",
-        "glass-sheen":
-          "linear-gradient(135deg, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0.02) 50%, rgba(255,255,255,0.08) 100%)",
-        "radial-spotlight":
-          "radial-gradient(ellipse at center, rgba(199,211,222,0.18) 0%, rgba(13,18,23,0) 60%)",
+        "aurora-soft":
+          "radial-gradient(ellipse 1200px 800px at 20% -10%, rgba(216,227,243,0.55), transparent 60%), radial-gradient(ellipse 1000px 700px at 80% 20%, rgba(232,216,243,0.35), transparent 60%), radial-gradient(ellipse 900px 600px at 50% 100%, rgba(211,233,228,0.35), transparent 60%), linear-gradient(180deg, #ffffff 0%, #fafbfd 100%)",
+        "chrome-pill":
+          "linear-gradient(180deg, #ffffff 0%, #f1f4fa 50%, #e0e7f2 100%)",
+        "chrome-light":
+          "linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(232,238,248,0.7) 30%, rgba(216,227,243,0.6) 60%, rgba(232,216,243,0.5) 100%)",
+        "dark-pill":
+          "linear-gradient(180deg, #1a1f2c 0%, #0b0d12 100%)",
       },
       boxShadow: {
-        glass:
-          "0 8px 32px 0 rgba(13, 18, 23, 0.55), inset 0 1px 0 0 rgba(255,255,255,0.06)",
-        "glass-hover":
-          "0 12px 48px 0 rgba(13, 18, 23, 0.65), inset 0 1px 0 0 rgba(255,255,255,0.10)",
-        chrome: "0 0 60px rgba(199, 211, 222, 0.18)",
+        "sm": "0 1px 2px rgba(20,28,50,0.04), 0 1px 1px rgba(20,28,50,0.03)",
+        "md": "0 4px 14px rgba(20,28,50,0.06), 0 1px 3px rgba(20,28,50,0.04)",
+        "lg": "0 12px 40px rgba(20,28,50,0.08), 0 2px 6px rgba(20,28,50,0.04)",
+        "xl":
+          "0 30px 80px -20px rgba(20,28,50,0.18), 0 8px 20px -8px rgba(20,28,50,0.08)",
+        "inset-glass":
+          "inset 0 1px 0 rgba(255,255,255,0.9), inset 0 -1px 0 rgba(180,195,220,0.2)",
+      },
+      borderRadius: {
+        sm: "10px",
+        md: "16px",
+        lg: "24px",
+        xl: "32px",
       },
       animation: {
-        "fade-in": "fadeIn 0.6s ease-out forwards",
-        "rise-in": "riseIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards",
-        "shimmer": "shimmer 6s linear infinite",
-        "pulse-slow": "pulseSlow 4s ease-in-out infinite",
+        marquee: "marquee 36s linear infinite",
+        float: "float 12s ease-in-out infinite",
+        "float-rev": "float 14s ease-in-out infinite reverse",
+        "fade-up": "fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards",
       },
       keyframes: {
-        fadeIn: {
-          "0%": { opacity: "0" },
-          "100%": { opacity: "1" },
+        marquee: {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(-50%)" },
         },
-        riseIn: {
-          "0%": { opacity: "0", transform: "translateY(16px)" },
+        float: {
+          "0%, 100%": { transform: "translate(0, 0) rotate(0deg)" },
+          "50%": { transform: "translate(20px, -30px) rotate(2deg)" },
+        },
+        fadeUp: {
+          "0%": { opacity: "0", transform: "translateY(20px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
-        },
-        shimmer: {
-          "0%": { backgroundPosition: "0% 50%" },
-          "100%": { backgroundPosition: "200% 50%" },
-        },
-        pulseSlow: {
-          "0%, 100%": { opacity: "0.6" },
-          "50%": { opacity: "1" },
         },
       },
     },

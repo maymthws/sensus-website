@@ -10,21 +10,9 @@ export function Section({
   id?: string;
 }) {
   return (
-    <section
-      id={id}
-      className={`mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 sm:py-28 ${className}`}
-    >
+    <section id={id} className={`section-pad container-x ${className}`}>
       {children}
     </section>
-  );
-}
-
-export function Eyebrow({ children }: { children: ReactNode }) {
-  return (
-    <span className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.22em] text-sensus-400">
-      <span className="h-px w-6 bg-gradient-to-r from-transparent to-sensus-500" />
-      {children}
-    </span>
   );
 }
 
@@ -41,14 +29,16 @@ export function SectionHeading({
 }) {
   return (
     <div
-      className={`mb-12 sm:mb-16 ${align === "center" ? "text-center mx-auto max-w-3xl" : "max-w-3xl"}`}
+      className={`mb-14 ${
+        align === "center"
+          ? "text-center mx-auto max-w-3xl"
+          : "max-w-3xl"
+      } reveal`}
     >
-      {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
-      <h2 className="mt-4 font-display text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-balance text-sensus-50">
-        {title}
-      </h2>
+      {eyebrow && <span className="eyebrow">{eyebrow}</span>}
+      <h2 className="mt-4 font-display text-balance">{title}</h2>
       {description && (
-        <p className="mt-5 text-base sm:text-lg text-sensus-300 text-pretty leading-relaxed">
+        <p className="mt-4 text-base sm:text-lg text-[var(--ink-500)] text-pretty leading-relaxed">
           {description}
         </p>
       )}

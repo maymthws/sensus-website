@@ -15,36 +15,30 @@ const interests = [
 
 export function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
-  const [interests, setInterests] = useState<string[]>([]);
+  const [picked, setPicked] = useState<string[]>([]);
   const [error, setError] = useState<string | null>(null);
 
-  function toggleInterest(i: string) {
-    setInterests((prev) =>
-      prev.includes(i) ? prev.filter((x) => x !== i) : [...prev, i],
-    );
+  function toggle(i: string) {
+    setPicked((prev) => (prev.includes(i) ? prev.filter((x) => x !== i) : [...prev, i]));
   }
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setStatus("submitting");
     setError(null);
-
     const form = e.currentTarget;
     const data = new FormData(form);
     const payload = Object.fromEntries(data.entries());
-    (payload as Record<string, unknown>).interests = interests;
+    (payload as Record<string, unknown>).interests = picked;
 
     const endpoint = siteConfig.contact.endpoint;
-
-    // Demo mode — no endpoint configured. Show a friendly confirmation.
     if (!endpoint) {
       await new Promise((r) => setTimeout(r, 600));
       setStatus("success");
       form.reset();
-      setInterests([]);
+      setPicked([]);
       return;
     }
-
     try {
       const res = await fetch(endpoint, {
         method: "POST",
@@ -54,7 +48,7 @@ export function ContactForm() {
       if (!res.ok) throw new Error(`Submission failed (${res.status})`);
       setStatus("success");
       form.reset();
-      setInterests([]);
+      setPicked([]);
     } catch (err) {
       setStatus("error");
       setError(err instanceof Error ? err.message : "Unknown error");
@@ -63,8 +57,8 @@ export function ContactForm() {
 
   if (status === "success") {
     return (
-      <div className="glass rounded-2xl p-8 text-center">
-        <div className="mx-auto w-12 h-12 rounded-full bg-white/10 ring-1 ring-white/15 flex items-center justify-center">
+      <div className="text-center py-4">
+        <div className="mx-auto w-12 h-12 rounded-full bg-white/70 ring-1 ring-[var(--line)] flex items-center justify-center">
           <svg
             width="20"
             height="20"
@@ -74,21 +68,19 @@ export function ContactForm() {
             strokeWidth="2.4"
             strokeLinecap="round"
             strokeLinejoin="round"
-            className="text-sensus-50"
+            className="text-[var(--ink-900)]"
           >
             <polyline points="20 6 9 17 4 12" />
           </svg>
         </div>
-        <h3 className="mt-4 font-display text-2xl font-semibold text-sensus-50">
-          Got it.
-        </h3>
-        <p className="mt-3 text-sm text-sensus-300 text-pretty">
+        <h3 className="mt-4 font-display text-2xl font-semibold text-[var(--ink-900)]">Got it.</h3>
+        <p className="mt-3 text-sm text-[var(--ink-500)] text-pretty">
           We'll get back to you within a week. In the meantime, follow along on{" "}
           <a
             href={siteConfig.social.x}
             target="_blank"
             rel="noopener noreferrer"
-            className="underline underline-offset-4 text-sensus-100 hover:text-sensus-50"
+            className="underline underline-offset-4 text-[var(--ink-700)] hover:text-[var(--ink-900)]"
           >
             X
           </a>
@@ -97,7 +89,7 @@ export function ContactForm() {
         <button
           type="button"
           onClick={() => setStatus("idle")}
-          className="mt-6 text-sm text-sensus-300 hover:text-sensus-50 underline underline-offset-4"
+          className="mt-6 text-sm text-[var(--ink-500)] hover:text-[var(--ink-900)] underline underline-offset-4"
         >
           Submit another
         </button>
@@ -107,23 +99,17 @@ export function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
-      <div className="grid sm:grid-cols-2 gap-5">
+      <div className="grid sm:grid-cols-2 gap-4">
         <Field label="Your name" name="name" required autoComplete="name" />
-        <Field
-          label="Email"
-          name="email"
-          type="email"
-          required
-          autoComplete="email"
-        />
+        <Field label="Email" name="email" type="email" required autoComplete="email" />
       </div>
-      <div className="grid sm:grid-cols-2 gap-5">
+      <div className="grid sm:grid-cols-2 gap-4">
         <Field label="Company / project" name="company" />
         <Field label="X / Twitter (optional)" name="twitter" placeholder="@handle" />
       </div>
 
       <div>
-        <label className="block text-xs font-medium uppercase tracking-[0.18em] text-sensus-400 mb-3">
+        <label className="block text-xs font-medium uppercase tracking-[0.08em] text-[var(--ink-500)] mb-3">
           I'm interested in
         </label>
         <div className="flex flex-wrap gap-2">
@@ -131,11 +117,11 @@ export function ContactForm() {
             <button
               type="button"
               key={i}
-              onClick={() => toggleInterest(i)}
+              onClick={() => toggle(i)}
               className={`px-3 py-1.5 text-sm rounded-full ring-1 transition-all ${
-                interests.includes(i)
-                  ? "bg-white/15 ring-white/25 text-sensus-50"
-                  : "bg-white/[0.03] ring-white/10 text-sensus-300 hover:bg-white/[0.06]"
+                picked.includes(i)
+                  ? "bg-white/85 ring-[var(--line-strong)] text-[var(--ink-900)]"
+                  : "bg-white/40 ring-[var(--line)] text-[var(--ink-500)] hover:bg-white/60"
               }`}
             >
               {i}
@@ -145,26 +131,27 @@ export function ContactForm() {
       </div>
 
       <div>
-        <label className="block text-xs font-medium uppercase tracking-[0.18em] text-sensus-400 mb-2">
+        <label htmlFor="message" className="block text-xs font-medium uppercase tracking-[0.08em] text-[var(--ink-500)] mb-2">
           Message
         </label>
         <textarea
+          id="message"
           name="message"
           required
           rows={5}
           placeholder="What are you building, and what stage are you at?"
-          className="w-full rounded-xl bg-white/[0.04] ring-1 ring-white/10 px-4 py-3 text-sm text-sensus-50 placeholder:text-sensus-500 focus:outline-none focus:ring-white/25 focus:bg-white/[0.06] transition"
+          className="w-full rounded-[var(--radius-md)] bg-white/70 ring-1 ring-[var(--line)] px-4 py-3 text-sm text-[var(--ink-900)] placeholder:text-[var(--ink-300)] focus:outline-none focus:ring-[var(--ink-500)] focus:bg-white transition"
         />
       </div>
 
       {error && (
-        <div className="rounded-xl ring-1 ring-red-400/30 bg-red-500/5 px-4 py-3 text-sm text-red-200">
+        <div className="rounded-[var(--radius-md)] ring-1 ring-red-400/30 bg-red-500/5 px-4 py-3 text-sm text-red-700">
           {error}
         </div>
       )}
 
-      <div className="flex flex-wrap items-center justify-between gap-4">
-        <p className="text-xs text-sensus-400">
+      <div className="flex flex-wrap items-center justify-between gap-4 pt-2">
+        <p className="text-xs text-[var(--ink-400)]">
           By submitting you agree to our{" "}
           <a href="#" className="underline underline-offset-4">
             privacy policy
@@ -174,18 +161,10 @@ export function ContactForm() {
         <button
           type="submit"
           disabled={status === "submitting"}
-          className="chrome-text bg-white/[0.06] hover:bg-white/[0.10] ring-1 ring-white/15 hover:ring-white/25 shadow-glass hover:shadow-glass-hover transition-all inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium rounded-xl disabled:opacity-50"
+          className="btn btn-primary disabled:opacity-50"
         >
           {status === "submitting" ? "Sending..." : "Send message"}
-          <svg
-            width="14"
-            height="14"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2.4"
-            strokeLinecap="round"
-          >
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round">
             <path d="M5 12h14M13 5l7 7-7 7" />
           </svg>
         </button>
@@ -213,7 +192,7 @@ function Field({
     <div>
       <label
         htmlFor={name}
-        className="block text-xs font-medium uppercase tracking-[0.18em] text-sensus-400 mb-2"
+        className="block text-xs font-medium uppercase tracking-[0.08em] text-[var(--ink-500)] mb-2"
       >
         {label}
       </label>
@@ -224,7 +203,7 @@ function Field({
         required={required}
         autoComplete={autoComplete}
         placeholder={placeholder}
-        className="w-full rounded-xl bg-white/[0.04] ring-1 ring-white/10 px-4 py-3 text-sm text-sensus-50 placeholder:text-sensus-500 focus:outline-none focus:ring-white/25 focus:bg-white/[0.06] transition"
+        className="w-full rounded-[var(--radius-md)] bg-white/70 ring-1 ring-[var(--line)] px-4 py-3 text-sm text-[var(--ink-900)] placeholder:text-[var(--ink-300)] focus:outline-none focus:ring-[var(--ink-500)] focus:bg-white transition"
       />
     </div>
   );
