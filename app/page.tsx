@@ -318,57 +318,80 @@ export default function HomePage() {
         </div>
       </Section>
 
-      {/* ───────── BACKED BY ───────── */}
-      <Section className="!py-16">
-        <div className="text-center mb-10 reveal">
+      {/* ───────── BACKED BY (marquee) ───────── */}
+      <Section className="!py-12">
+        <div className="text-center mb-8 reveal">
           <span className="eyebrow">Backed by</span>
           <p className="mt-3 text-sm text-[var(--ink-500)] text-pretty">
             Partners who help make SENSUS happen.
           </p>
         </div>
-        <div className="grid gap-8 grid-cols-1 sm:grid-cols-3 items-center justify-items-center reveal-stagger">
-          <a
-            href="https://contributiondao.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="ContributionDAO"
-            className="group flex items-center justify-center h-20 w-full max-w-[260px] opacity-70 hover:opacity-100 transition-opacity"
-          >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/partner-contributiondao.png"
-              alt="ContributionDAO"
-              className="max-h-full max-w-full object-contain"
-            />
-          </a>
-          <a
-            href="https://www.bitget.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Bitget × Blockchain4Youth"
-            className="group flex items-center justify-center h-20 w-full max-w-[260px] opacity-70 hover:opacity-100 transition-opacity"
-          >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/partner-bitget.png"
-              alt="Bitget × Blockchain4Youth"
-              className="max-h-full max-w-full object-contain"
-            />
-          </a>
-          <a
-            href="https://mypal.io"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="mypal"
-            className="group flex items-center justify-center h-20 w-full max-w-[260px] opacity-70 hover:opacity-100 transition-opacity"
-          >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/partner-mypal.png"
-              alt="mypal"
-              className="max-h-full max-w-full object-contain"
-            />
-          </a>
+        <div className="relative overflow-hidden border-y border-[var(--line)] bg-white/30 backdrop-blur-sm py-8 -mx-4 sm:-mx-6 lg:-mx-8">
+          {/* Edge fade masks */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-y-0 left-0 w-24 z-10"
+            style={{
+              background:
+                "linear-gradient(to right, white, transparent)",
+            }}
+          />
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-y-0 right-0 w-24 z-10"
+            style={{
+              background:
+                "linear-gradient(to left, white, transparent)",
+            }}
+          />
+          <div className="marquee-track flex items-center gap-16 px-8 whitespace-nowrap animate-marquee">
+            {[1, 2].map((dup) => (
+              <div key={dup} className="flex items-center gap-16 shrink-0" aria-hidden={dup === 2}>
+                <a
+                  href="https://contributiondao.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="ContributionDAO"
+                  className="opacity-70 hover:opacity-100 transition-opacity shrink-0"
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/partner-contributiondao.png"
+                    alt="ContributionDAO"
+                    className="h-12 w-auto object-contain"
+                  />
+                </a>
+                <a
+                  href="https://www.bitget.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Bitget × Blockchain4Youth"
+                  className="opacity-70 hover:opacity-100 transition-opacity shrink-0"
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/partner-bitget.png"
+                    alt="Bitget × Blockchain4Youth"
+                    className="h-12 w-auto object-contain"
+                  />
+                </a>
+                <a
+                  href="https://mypal.io"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="mypal"
+                  className="opacity-70 hover:opacity-100 transition-opacity shrink-0"
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/partner-mypal.png"
+                    alt="mypal"
+                    className="h-12 w-auto object-contain"
+                  />
+                </a>
+              </div>
+            ))}
+          </div>
         </div>
       </Section>
 
