@@ -113,20 +113,6 @@ export default function HomePage() {
               Watch past sessions <span className="arrow">→</span>
             </Link>
           </div>
-
-          <div className="mt-14 flex flex-wrap justify-center gap-x-10 gap-y-3 text-sm text-[var(--ink-500)] reveal">
-            <div className="flex items-center gap-2">
-              <strong className="text-[var(--ink-900)] font-semibold">10 min</strong>
-              <span>per demo</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <strong className="text-[var(--ink-900)] font-semibold">AI · Blockchain · Consumer</strong>
-            </div>
-            <div className="flex items-center gap-2">
-              <strong className="text-[var(--ink-900)] font-semibold">Recorded</strong>
-              <span>and shipped to YouTube</span>
-            </div>
-          </div>
         </div>
       </section>
 
