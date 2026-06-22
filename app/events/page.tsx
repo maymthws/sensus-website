@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Section, SectionHeading } from "@/components/Section";
+import { Section } from "@/components/Section";
 import { events } from "@/lib/events";
 import { siteConfig } from "@/lib/config";
 
 export const metadata: Metadata = {
   title: "Events",
-  description: "Upcoming and past SENSUS editions — curated Web3 gatherings.",
+  description:
+    "SENSUS editions — curated Web3 gatherings in Bangkok and beyond.",
 };
 
 function formatEventDate(iso: string) {
@@ -26,18 +27,20 @@ function formatEventTime(iso: string) {
 }
 
 export default function EventsPage() {
-  const upcoming = events.filter((e) => e.status === "Upcoming");
-  const past = events.filter((e) => e.status === "Past");
+  // Always show the single featured event (BKK Edition)
+  const featured = events[0];
+  // Luma gallery: duplicate cover image as a faux gallery (1 event = repeat 6×)
+  const galleryItems = Array.from({ length: 6 });
 
   return (
     <>
       {/* Page header */}
       <section className="pt-40 sm:pt-48 pb-12 text-center">
         <div className="container-x">
-          <span className="eyebrow reveal">Calendar</span>
+          <span className="eyebrow reveal">Editions</span>
           <h1 className="mt-6 reveal">
             <span className="text-[var(--ink-900)]">SENSUS</span>{" "}
-            <span className="chrome-text">editions.</span>
+            <span className="chrome-text">calendar.</span>
           </h1>
           <p className="mt-6 max-w-2xl mx-auto text-lg text-[var(--ink-500)] text-pretty leading-relaxed reveal">
             A focused calendar of curated gatherings. Every edition is small,
@@ -46,144 +49,260 @@ export default function EventsPage() {
         </div>
       </section>
 
-      {upcoming.length > 0 && (
-        <Section id="upcoming" className="!pt-8">
-          <SectionHeading
-            eyebrow="Upcoming"
-            title={
-              <>
-                Next on the <span className="chrome-text">calendar.</span>
-              </>
-            }
-            description="Limited seats. Applications reviewed on a rolling basis."
+      {/* FEATURED EVENT — Luma-style hero card */}
+      <Section className="!pt-4">
+        <article
+          id={featured.slug}
+          className="chrome-surface relative overflow-hidden reveal"
+        >
+          {/* Cover image backdrop */}
+          <div
+            aria-hidden
+            className="absolute inset-0 opacity-[0.18] pointer-events-none"
+            style={{
+              backgroundImage: `url(${featured.coverImage})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
           />
-          <div className="grid gap-6 reveal-stagger">
-            {upcoming.map((e) => (
-              <article
-                key={e.slug}
-                id={e.slug}
-                className="chrome-surface p-7 sm:p-10 relative overflow-hidden"
-              >
-                <div
-                  aria-hidden
-                  className="absolute inset-y-0 right-0 w-1/3"
-                  style={{
-                    background:
-                      "linear-gradient(to left, rgba(255,255,255,0.4), transparent)",
-                  }}
-                />
-                <div className="relative grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
-                  <div>
-                    <div className="flex flex-wrap items-center gap-2 mb-4">
-                      <span className="tag-pill">Upcoming</span>
-                      <span className="tag-pill">{e.theme}</span>
-                      {e.capacity && (
-                        <span className="text-xs text-[var(--ink-500)]">· {e.capacity}</span>
-                      )}
-                    </div>
-                    <h3 className="text-[var(--ink-900)] text-balance">{e.title}</h3>
-                    <p className="mt-3 text-sm text-[var(--ink-500)] text-pretty max-w-2xl">
-                      {e.summary}
-                    </p>
-                    <dl className="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2 text-sm">
-                      <div className="flex gap-2">
-                        <dt className="text-[var(--ink-400)] min-w-[60px]">Date</dt>
-                        <dd className="text-[var(--ink-700)]">{formatEventDate(e.date)}</dd>
-                      </div>
-                      <div className="flex gap-2">
-                        <dt className="text-[var(--ink-400)] min-w-[60px]">Time</dt>
-                        <dd className="text-[var(--ink-700)]">{formatEventTime(e.date)}</dd>
-                      </div>
-                      <div className="flex gap-2">
-                        <dt className="text-[var(--ink-400)] min-w-[60px]">Venue</dt>
-                        <dd className="text-[var(--ink-700)]">{e.location}</dd>
-                      </div>
-                    </dl>
-                    <ul className="mt-5 space-y-1.5 text-sm text-[var(--ink-700)]">
-                      {e.highlights.map((h) => (
-                        <li key={h} className="flex items-start gap-2">
-                          <svg
-                            className="mt-1 shrink-0"
-                            width="14"
-                            height="14"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2.4"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          >
-                            <polyline points="20 6 9 17 4 12" />
-                          </svg>
-                          <span>{h}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div className="flex flex-col gap-3 lg:items-end">
-                    <Link href={e.rsvpUrl || "/contact"} target={e.rsvpUrl ? "_blank" : undefined} rel={e.rsvpUrl ? "noopener noreferrer" : undefined} className="btn btn-primary">
-                      Apply to attend
-                    </Link>
-                    <Link href="/contact" className="btn btn-ghost">
-                      Sponsor / partner
-                    </Link>
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
-        </Section>
-      )}
+          <div
+            aria-hidden
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              background:
+                "linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.85) 50%, rgba(255,255,255,0.95) 100%)",
+            }}
+          />
 
-      <Section>
-        <SectionHeading
-          eyebrow="Archive"
-          title={
-            <>
-              Past <span className="chrome-text">editions.</span>
-            </>
-          }
-          description="Recordings live on the Project Spotlight page."
-        />
-        <div className="grid gap-6 md:grid-cols-2 reveal-stagger">
-          {past.map((e) => (
-            <article key={e.slug} id={e.slug} className="glass-card p-7 sm:p-8">
-              <div className="flex flex-wrap items-center gap-2 mb-3">
-                <span className="tag-pill">{e.theme}</span>
-                <span className="text-xs text-[var(--ink-400)]">{formatEventDate(e.date)}</span>
+          <div className="relative grid gap-8 lg:grid-cols-[1.2fr_1fr] p-7 sm:p-10">
+            {/* Left: meta + content */}
+            <div>
+              <div className="flex flex-wrap items-center gap-2 mb-4">
+                <span className="tag-pill">Past edition</span>
+                <span className="tag-pill">{featured.theme}</span>
+                {featured.capacity && (
+                  <span className="text-xs text-[var(--ink-500)]">· {featured.capacity}</span>
+                )}
               </div>
-              <h3 className="text-[var(--ink-900)] text-balance">{e.title}</h3>
-              <p className="mt-3 text-sm text-[var(--ink-500)] text-pretty">{e.summary}</p>
-              <p className="mt-3 text-xs text-[var(--ink-400)]">{e.location}</p>
-              <ul className="mt-4 space-y-1 text-sm text-[var(--ink-700)]">
-                {e.highlights.map((h) => (
-                  <li key={h} className="flex items-start gap-2">
-                    <span className="text-[var(--ink-400)]">—</span>
+              <h2 className="text-[var(--ink-900)] text-balance">
+                {featured.title}
+              </h2>
+              <p className="mt-4 text-base sm:text-lg text-[var(--ink-500)] text-pretty leading-relaxed max-w-2xl">
+                {featured.summary}
+              </p>
+              <p className="mt-4 text-sm text-[var(--ink-500)] text-pretty max-w-2xl">
+                {featured.description}
+              </p>
+
+              <dl className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2 text-sm">
+                <div className="flex gap-2">
+                  <dt className="text-[var(--ink-400)] min-w-[60px]">Date</dt>
+                  <dd className="text-[var(--ink-700)]">{formatEventDate(featured.date)}</dd>
+                </div>
+                <div className="flex gap-2">
+                  <dt className="text-[var(--ink-400)] min-w-[60px]">Time</dt>
+                  <dd className="text-[var(--ink-700)]">
+                    {formatEventTime(featured.date)} – {formatEventTime(featured.endDate || featured.date)}
+                  </dd>
+                </div>
+                <div className="flex gap-2">
+                  <dt className="text-[var(--ink-400)] min-w-[60px]">Venue</dt>
+                  <dd className="text-[var(--ink-700)]">{featured.location}</dd>
+                </div>
+                <div className="flex gap-2">
+                  <dt className="text-[var(--ink-400)] min-w-[60px]">Host</dt>
+                  <dd className="text-[var(--ink-700)]">{featured.organizer}</dd>
+                </div>
+              </dl>
+
+              <div className="mt-7 flex flex-wrap gap-3">
+                <a
+                  href={featured.lumaUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-primary"
+                >
+                  View on Luma <span className="arrow">→</span>
+                </a>
+                <Link href="/spotlight" className="btn btn-ghost">
+                  Watch recordings
+                </Link>
+              </div>
+            </div>
+
+            {/* Right: cover image (clean) */}
+            <div className="relative">
+              <div
+                className="relative aspect-[4/5] w-full rounded-[var(--radius-lg)] overflow-hidden ring-1 ring-[var(--line)] shadow-glass"
+                style={{
+                  background:
+                    "linear-gradient(135deg, #1a1f2c 0%, #0b0d12 100%)",
+                }}
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={featured.coverImage}
+                  alt={featured.title}
+                  className="absolute inset-0 w-full h-full object-cover"
+                  loading="eager"
+                />
+                <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between text-[10px] uppercase tracking-[0.2em] text-white/70">
+                  <span>Hosted by {featured.organizer}</span>
+                  <span>luma.com</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </Section>
+
+      {/* AGENDA + HIGHLIGHTS — 2-column detail grid */}
+      <Section>
+        <div className="grid gap-10 lg:grid-cols-2">
+          {/* Agenda */}
+          <div className="reveal">
+            <span className="eyebrow">Agenda</span>
+            <h3 className="mt-4 font-display text-2xl sm:text-3xl font-semibold text-[var(--ink-900)] text-balance">
+              Five hours. One shared stage.
+            </h3>
+            <ol className="mt-8 space-y-3">
+              {featured.agenda.map((a) => (
+                <li
+                  key={a.time + a.title}
+                  className="flex gap-4 items-start glass-card p-4"
+                >
+                  <span className="shrink-0 font-display font-semibold text-[var(--ink-900)] text-base tracking-tight w-14">
+                    {a.time}
+                  </span>
+                  <span className="text-sm text-[var(--ink-700)] text-pretty leading-relaxed pt-0.5">
+                    {a.title}
+                  </span>
+                </li>
+              ))}
+            </ol>
+          </div>
+
+          {/* Highlights + Who should attend */}
+          <div className="space-y-10">
+            <div className="reveal">
+              <span className="eyebrow">What to expect</span>
+              <ul className="mt-6 space-y-3">
+                {featured.highlights.map((h) => (
+                  <li
+                    key={h}
+                    className="flex items-start gap-3 text-sm text-[var(--ink-700)] text-pretty leading-relaxed"
+                  >
+                    <svg
+                      className="mt-0.5 shrink-0"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.4"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
                     <span>{h}</span>
                   </li>
                 ))}
               </ul>
-              <div className="mt-5 pt-5 border-t border-[var(--line)]">
-                <Link href="/spotlight" className="text-sm font-medium text-[var(--ink-900)] hover:underline underline-offset-4">
-                  Watch recordings →
-                </Link>
+            </div>
+
+            <div className="reveal">
+              <span className="eyebrow">Who should attend</span>
+              <ul className="mt-6 space-y-2">
+                {featured.whoShouldAttend.map((w) => (
+                  <li
+                    key={w}
+                    className="text-sm text-[var(--ink-500)] text-pretty leading-relaxed"
+                  >
+                    — {w}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="reveal">
+              <span className="eyebrow">Sponsors</span>
+              <div className="mt-6 flex flex-wrap gap-2">
+                {featured.sponsors.map((s) => (
+                  <span
+                    key={s}
+                    className="tag-pill backdrop-blur-sm"
+                    style={{
+                      background: "rgba(255,255,255,0.65)",
+                      border: "1px solid rgba(255,255,255,0.7)",
+                    }}
+                  >
+                    {s}
+                  </span>
+                ))}
               </div>
-            </article>
-          ))}
+            </div>
+          </div>
         </div>
       </Section>
 
-      <Section className="!pt-0">
+      {/* LUMA GALLERY — cover image repeated as a 6-cell grid */}
+      <Section className="!pt-4">
+        <div className="text-center mb-10 reveal">
+          <span className="eyebrow">From the room</span>
+          <h3 className="mt-4 font-display text-2xl sm:text-3xl font-semibold text-[var(--ink-900)] text-balance">
+            Captured at {featured.location.split(",")[0]}.
+          </h3>
+          <p className="mt-3 max-w-xl mx-auto text-sm text-[var(--ink-500)] text-pretty">
+            A visual snapshot of the room, the partners, and the conversations that moved the work forward.
+          </p>
+        </div>
+
+        <div className="grid gap-3 grid-cols-2 sm:grid-cols-3 reveal-stagger">
+          {galleryItems.map((_, i) => (
+            <a
+              key={i}
+              href={featured.lumaUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative aspect-square rounded-[var(--radius-md)] overflow-hidden ring-1 ring-[var(--line)] block"
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={featured.coverImage}
+                alt={`${featured.title} — frame ${i + 1}`}
+                loading="lazy"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div
+                aria-hidden
+                className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
+              />
+            </a>
+          ))}
+        </div>
+        <p className="mt-6 text-center text-xs text-[var(--ink-400)]">
+          Gallery placeholder · opens Luma event page for full album
+        </p>
+      </Section>
+
+      {/* STAY IN THE LOOP */}
+      <Section className="!pt-4">
         <div className="chrome-surface text-center p-12 sm:p-16">
           <span className="eyebrow">Stay in the loop</span>
-          <h2 className="mt-4 font-display text-[var(--ink-900)] text-balance">
+          <h2 className="mt-4 font-display text-2xl sm:text-3xl font-semibold text-[var(--ink-900)] text-balance">
             Don't miss the next edition
           </h2>
           <p className="mt-4 max-w-xl mx-auto text-[var(--ink-500)] text-pretty">
             Follow on X for the live announcement, or drop us a line to get on the partner list.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <Link href={siteConfig.social.x} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+            <Link
+              href={siteConfig.social.x}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-primary"
+            >
               Follow on X
             </Link>
             <Link href="/contact" className="btn btn-ghost">

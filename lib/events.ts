@@ -1,80 +1,64 @@
 export type EventItem = {
   slug: string;
   title: string;
-  date: string; // ISO
+  shortTitle: string;
+  date: string; // ISO start
+  endDate?: string; // ISO end
   location: string;
   status: "Upcoming" | "Past";
   theme: string;
   summary: string;
+  description: string;
+  agenda: { time: string; title: string }[];
   highlights: string[];
+  whoShouldAttend: string[];
   capacity?: string;
   rsvpUrl?: string;
+  lumaUrl: string;
+  coverImage: string;
+  organizer: string;
+  sponsors: string[];
 };
 
-// Curated placeholder data — replace the array contents to update the events page.
-// Each entry is rendered as a card; the next Upcoming event is featured at the top.
 export const events: EventItem[] = [
   {
-    slug: "sensus-007-edge-of-the-stack",
-    title: "SENSUS #007 — Edge of the Stack",
-    date: "2026-08-14T18:00:00+07:00",
-    location: "Bangkok · The Parq",
-    status: "Upcoming",
-    theme: "AI x Consumer",
-    summary:
-      "Ten-minute demos from teams shipping consumer-grade AI in production. Strict no-slides policy — only working product.",
-    highlights: [
-      "Curated 10×10 demo format",
-      "Investor & partner salon afterwards",
-      "Full recording published to YouTube within 48h",
-    ],
-    capacity: "120 seats · application required",
-    rsvpUrl: "https://x.com/SensusHQ",
-  },
-  {
-    slug: "sensus-006-onchain-renaissance",
-    title: "SENSUS #006 — Onchain Renaissance",
-    date: "2026-05-22T19:00:00+07:00",
-    location: "Bangkok · Booking Holdings Building",
+    slug: "road-to-sensus-bkk-edition",
+    title: "ROAD TO SENSUS: BKK EDITION",
+    shortTitle: "SENSUS BKK Edition",
+    date: "2026-05-19T14:00:00+07:00",
+    endDate: "2026-05-19T19:00:00+07:00",
+    location: "Bangkok, Thailand",
     status: "Past",
-    theme: "Blockchain",
+    theme: "Web3 · AI · Consumer",
     summary:
-      "Builders re-anchoring onchain experiences around real users and real distribution. Eight demos, two investor panels.",
-    highlights: [
-      "8 curated demos",
-      "Recordings live on the Project Spotlight page",
-      "Partnered with three regional VCs",
+      "Where the Signal meets the stage for global builders and visionaries.",
+    description:
+      "SENSUS is a curated gathering for the Web3 ecosystem. Moving away from traditional conferences, we focus on a \"High-Signal\" environment — stripping away the noise to foster deep technical discussions, showcase real progress, and build strategic partnerships.",
+    agenda: [
+      { time: "14:00", title: "Doors Open · Registration and welcome drinks" },
+      { time: "14:45", title: "Sponsor Spotlights · Partner ecosystem visions" },
+      { time: "15:00", title: "Curated Spotlight Sessions · TED-style showcases" },
+      { time: "16:00", title: "Refreshment" },
+      { time: "16:15", title: "Curated Spotlight Sessions (continued)" },
+      { time: "17:30", title: "SENSUS Connect · Open floor networking" },
     ],
-  },
-  {
-    slug: "sensus-005-agents-in-the-wild",
-    title: "SENSUS #005 — Agents in the Wild",
-    date: "2026-03-06T18:30:00+07:00",
-    location: "Singapore · Capitol Theatre",
-    status: "Past",
-    theme: "AI",
-    summary:
-      "Agentic systems moving past demos: live integrations, real customers, and the operations behind them.",
     highlights: [
-      "First Singapore edition",
-      "Co-hosted with regional AI guilds",
-      "Featured in Web3 with AI newsletter",
+      "10-minute TED-style Project Spotlights from selected teams",
+      "Strategic deal-making with funds, ecosystem leaders, and operators",
+      "Complimentary food and drinks throughout the event",
     ],
-  },
-  {
-    slug: "sensus-004-consumer-quiet-revolution",
-    title: "SENSUS #004 — Consumer Quiet Revolution",
-    date: "2025-11-13T18:30:00+07:00",
-    location: "Bangkok · HUBBA-TO",
-    status: "Past",
-    theme: "Consumer Apps",
-    summary:
-      "Consumer teams shipping with sub-1M MAU — focused on retention, not hype. Sold out 90 seats in 6 days.",
-    highlights: [
-      "Sold out · waitlist of 240",
-      "6 demos + 4 founder fireside chats",
-      "Sponsor: Tether, Kaito, Galxe",
+    whoShouldAttend: [
+      "Strategic Partners · Funds, ecosystem leaders, and industry executives",
+      "Project Owners / Builders · Founders and technical teams showcasing progress",
+      "Web3 Insiders · Dedicated operators and experts driving the industry forward",
     ],
+    capacity: "By application · free general admission",
+    rsvpUrl: "https://luma.com/dauf89hl",
+    lumaUrl: "https://luma.com/dauf89hl",
+    coverImage:
+      "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=1,anim=false,background=white,quality=75,width=1920,height=1920/uploads/th/aade6eae-c7cf-4a71-95dd-0298b690976f.png",
+    organizer: "ContributionDAO",
+    sponsors: ["Bitget Academy", "Blockchain4Youth", "Mypal Pro"],
   },
 ];
 
