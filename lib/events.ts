@@ -52,11 +52,11 @@ export const events: EventItem[] = [
       "Project Owners / Builders · Founders and technical teams showcasing progress",
       "Web3 Insiders · Dedicated operators and experts driving the industry forward",
     ],
-    capacity: "By application · free general admission",
+    capacity: "By application",
     rsvpUrl: "https://luma.com/dauf89hl",
     lumaUrl: "https://luma.com/dauf89hl",
     coverImage: "/event-bkk-cover.png",
-    organizer: "ContributionDAO",
+    organizer: "SENSUS",
     sponsors: ["Bitget Academy", "Blockchain4Youth", "Mypal Pro"],
   },
 ];

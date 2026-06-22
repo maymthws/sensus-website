@@ -23,6 +23,7 @@ function formatEventTime(iso: string) {
   return new Date(iso).toLocaleTimeString("en-US", {
     hour: "numeric",
     minute: "2-digit",
+    timeZone: "Asia/Bangkok",
   });
 }
 
@@ -78,7 +79,7 @@ export default function EventsPage() {
             {/* Left: meta + content */}
             <div>
               <div className="flex flex-wrap items-center gap-2 mb-4">
-                <span className="tag-pill">Past edition</span>
+                <span className="tag-pill">BKK Edition</span>
                 <span className="tag-pill">{featured.theme}</span>
                 {featured.capacity && (
                   <span className="text-xs text-[var(--ink-500)]">· {featured.capacity}</span>
@@ -125,7 +126,7 @@ export default function EventsPage() {
                   View on Luma <span className="arrow">→</span>
                 </a>
                 <Link href="/spotlight" className="btn btn-ghost">
-                  Watch recordings
+                  Watch Project Spotlight
                 </Link>
               </div>
             </div>
