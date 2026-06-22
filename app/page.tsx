@@ -99,11 +99,7 @@ export default function HomePage() {
         </div>
 
         <div className="container-x relative z-10 pt-40 sm:pt-48 pb-20 sm:pb-28 text-center">
-          <div className="reveal">
-            <span className="eyebrow">SENSUS · Vol. 03 — Applications open</span>
-          </div>
-
-          <h1 className="mt-8 reveal max-w-[1000px] mx-auto">
+          <h1 className="reveal max-w-[1000px] mx-auto">
             A curated gathering for{" "}
             <span className="chrome-text">the Web3 ecosystem.</span>
           </h1>
@@ -133,6 +129,49 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ───────── WHAT IS SENSUS ───────── */}
+      <Section>
+        <div className="reveal">
+          <span className="eyebrow">What is SENSUS</span>
+        </div>
+
+        <h2 className="mt-6 max-w-4xl text-[var(--ink-900)] text-balance reveal" style={{ fontSize: "clamp(36px, 5vw, 64px)", letterSpacing: "-0.035em" }}>
+          A curated gathering for{" "}
+          <br className="hidden sm:block" />
+          the Web3 ecosystem
+        </h2>
+
+        <div className="mt-12 grid gap-6 md:grid-cols-2 reveal-stagger">
+          <article className="glass-card p-8 sm:p-10">
+            <h3 className="text-[var(--ink-900)] text-2xl sm:text-3xl font-semibold">
+              Not a conference
+            </h3>
+            <p className="mt-5 text-base text-[var(--ink-500)] text-pretty leading-relaxed">
+              SENSUS is a curated gathering — every edition is built around
+              high-signal conversations, exclusive showcases, and real
+              connections between builders and strategic partners.
+            </p>
+          </article>
+
+          <article className="glass-card p-8 sm:p-10">
+            <h3 className="text-[var(--ink-900)] text-2xl sm:text-3xl font-semibold">
+              A culture-first event series
+            </h3>
+            <div className="mt-5 space-y-4 text-base text-[var(--ink-500)] text-pretty leading-relaxed">
+              <p>
+                SENSUS is designed to build long-term relationships within the
+                Web3 community.
+              </p>
+              <p>
+                The first chapter begins in Bangkok, followed by Seoul and
+                Singapore. Each edition contributes to a growing body of content
+                and community.
+              </p>
+            </div>
+          </article>
+        </div>
+      </Section>
 
       {/* ───────── MARQUEE ───────── */}
       <div className="border-y border-[var(--line)] bg-white/40 backdrop-blur-md overflow-hidden">
