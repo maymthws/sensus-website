@@ -198,6 +198,51 @@ export default function EventsPage() {
         </div>
       </Section>
 
+      {/* BECOME A SPONSOR */}
+      <Section className="!pt-4">
+        <div className="text-center mb-10 reveal">
+          <span className="eyebrow">Become a partner</span>
+          <h2 className="mt-4 font-display text-2xl sm:text-3xl font-semibold text-[var(--ink-900)] text-balance">
+            Sponsor the next edition.
+          </h2>
+        </div>
+
+        <div className="grid gap-6 sm:grid-cols-3 max-w-5xl mx-auto reveal-stagger">
+          <div className="chrome-surface p-6 sm:p-8">
+            <div className="text-2xl mb-3" aria-hidden>🎯</div>
+            <h3 className="font-display text-lg font-semibold text-[var(--ink-900)]">Audience</h3>
+            <p className="mt-2 text-sm text-[var(--ink-500)] text-pretty leading-relaxed">
+              Funds, founders, builders, ecosystem leads.
+            </p>
+          </div>
+          <div className="chrome-surface p-6 sm:p-8">
+            <div className="text-2xl mb-3" aria-hidden>🪑</div>
+            <h3 className="font-display text-lg font-semibold text-[var(--ink-900)]">Format</h3>
+            <p className="mt-2 text-sm text-[var(--ink-500)] text-pretty leading-relaxed">
+              Curated, 30–80 seats, no keynote theatre.
+            </p>
+          </div>
+          <div className="chrome-surface p-6 sm:p-8">
+            <div className="text-2xl mb-3" aria-hidden>📼</div>
+            <h3 className="font-display text-lg font-semibold text-[var(--ink-900)]">Reach</h3>
+            <p className="mt-2 text-sm text-[var(--ink-500)] text-pretty leading-relaxed">
+              Every demo recorded, every recording public — asynchronous shelf life.
+            </p>
+          </div>
+        </div>
+
+        <div className="mt-10 text-center reveal">
+          <a
+            href="https://t.me/maycdao"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-primary"
+          >
+            Become a sponsor <span className="arrow">→</span>
+          </a>
+        </div>
+      </Section>
+
       {/* STAY IN THE LOOP */}
       <Section className="!pt-4">
         <div className="chrome-surface text-center p-12 sm:p-16">
