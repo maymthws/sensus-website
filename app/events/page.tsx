@@ -209,7 +209,7 @@ export default function EventsPage() {
             Don't miss the next edition
           </h2>
           <p className="mt-4 max-w-xl mx-auto text-[var(--ink-500)] text-pretty">
-            ติดตาม
+            Be the first to know where SENSUS goes next.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Link
@@ -221,7 +221,7 @@ export default function EventsPage() {
               Follow on X
             </Link>
             <Link
-              href={featured.lumaUrl}
+              href="https://luma.com/sensus"
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-ghost"
