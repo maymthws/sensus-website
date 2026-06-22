@@ -173,20 +173,21 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     box-shadow: 0 0 8px rgba(200, 211, 227, 0.6);
   }
 
-  /* Chrome text — signature gradient */
+  /* Aurora text — soft blue → lavender → mint gradient, no white slash */
   .chrome-text {
     background: linear-gradient(
-      180deg,
-      #1a1f2c 0%,
-      #5a6878 35%,
-      #ffffff 50%,
-      #5a6878 65%,
-      #1a1f2c 100%
+      135deg,
+      #6b8db5 0%,        /* deep aurora blue */
+      #8a7bb5 35%,       /* lavender */
+      #b89bc4 65%,       /* soft lilac */
+      #7fb3a8 100%       /* mint */
     );
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
+    /* very subtle highlight at top edge to keep a touch of metallic feel */
+    filter: drop-shadow(0 1px 0 rgba(255, 255, 255, 0.4));
   }
 
   /* Chrome surface — the signature card */
