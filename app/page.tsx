@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { Section, SectionHeading } from "@/components/Section";
+import { Section, SectionHeading, SectionDivider } from "@/components/Section";
 import { siteConfig } from "@/lib/config";
 
 export const metadata: Metadata = {
@@ -116,46 +116,79 @@ export default function HomePage() {
         </div>
       </section>
 
+      <SectionDivider />
+
       {/* ───────── WHAT IS SENSUS ───────── */}
-      <Section>
-        <div className="reveal">
-          <span className="eyebrow">What is SENSUS</span>
-        </div>
+      <Section variant="loose">
+        <div className="grid gap-14 lg:grid-cols-[1.15fr_0.85fr] lg:gap-20 lg:items-center">
+          {/* Text — left */}
+          <div>
+            <div className="reveal">
+              <span className="eyebrow">What is SENSUS</span>
+            </div>
 
-        <h2 className="mt-6 max-w-4xl text-[var(--ink-900)] text-balance reveal" style={{ fontSize: "clamp(36px, 5vw, 64px)", letterSpacing: "-0.035em" }}>
-          A curated gathering for{" "}
-          <br className="hidden sm:block" />
-          the Web3 ecosystem
-        </h2>
+            <h2
+              className="mt-6 text-[var(--ink-900)] text-balance reveal"
+              style={{ fontSize: "clamp(36px, 5vw, 64px)", letterSpacing: "-0.035em" }}
+            >
+              A curated gathering for{" "}
+              <br className="hidden sm:block" />
+              the Web3 ecosystem
+            </h2>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-2 reveal-stagger">
-          <article className="glass-card p-8 sm:p-10">
-            <h3 className="text-[var(--ink-900)] text-2xl sm:text-3xl font-semibold">
-              Not a conference
-            </h3>
-            <p className="mt-5 text-base text-[var(--ink-500)] text-pretty leading-relaxed">
-              SENSUS is a curated gathering — every edition is built around
-              high-signal conversations, exclusive showcases, and real
-              connections between builders and strategic partners.
-            </p>
-          </article>
-
-          <article className="glass-card p-8 sm:p-10">
-            <h3 className="text-[var(--ink-900)] text-2xl sm:text-3xl font-semibold">
-              A culture-first event series
-            </h3>
-            <div className="mt-5 space-y-4 text-base text-[var(--ink-500)] text-pretty leading-relaxed">
-              <p>
-                SENSUS is designed to build long-term relationships within the
-                Web3 community.
+            <div className="mt-10 max-w-2xl reveal-stagger space-y-6">
+              <p className="text-base sm:text-lg text-[var(--ink-500)] text-pretty leading-relaxed">
+                <strong className="text-[var(--ink-900)] font-semibold">Not a conference.</strong>{" "}
+                SENSUS is a curated gathering — every edition is built around
+                high-signal conversations, exclusive showcases, and real
+                connections between builders and strategic partners.
               </p>
-              <p>
-                The first chapter begins in Bangkok, followed by Seoul and
-                Singapore. Each edition contributes to a growing body of content
-                and community.
+              <p className="text-base sm:text-lg text-[var(--ink-500)] text-pretty leading-relaxed">
+                <strong className="text-[var(--ink-900)] font-semibold">A culture-first event series.</strong>{" "}
+                SENSUS is designed to build long-term relationships within the
+                Web3 community. The first chapter begins in Bangkok, followed
+                by Seoul and Singapore — each edition contributes to a growing
+                body of content and community.
               </p>
             </div>
-          </article>
+          </div>
+
+          {/* Visual — right: oversized chrome S inside glass card */}
+          <div className="reveal lg:order-last">
+            <div
+              className="relative aspect-square w-full rounded-[var(--radius-xl)] overflow-hidden ring-1 ring-[var(--line)]"
+              style={{
+                background:
+                  "linear-gradient(135deg, #ffffff 0%, #e9eef6 50%, #d8e3f3 100%)",
+              }}
+            >
+              <div
+                aria-hidden
+                className="absolute inset-0"
+                style={{
+                  background:
+                    "radial-gradient(circle at 70% 30%, rgba(232,216,243,0.4), transparent 60%)",
+                }}
+              />
+              <div
+                aria-hidden
+                className="absolute inset-0 grid-bg opacity-50"
+              />
+              <div className="absolute inset-0 flex items-center justify-center p-10">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/logo-s.png"
+                  alt=""
+                  aria-hidden
+                  className="w-full h-full object-contain drop-shadow-[0_8px_24px_rgba(20,28,50,0.10)]"
+                />
+              </div>
+              <div className="absolute bottom-5 left-6 right-6 flex items-center justify-between text-[10px] uppercase tracking-[0.2em] text-[var(--ink-500)]">
+                <span>Chrome S</span>
+                <span>sensus.events</span>
+              </div>
+            </div>
+          </div>
         </div>
       </Section>
 
@@ -177,10 +210,60 @@ export default function HomePage() {
         </div>
       </div>
 
+      <SectionDivider />
+
       {/* ───────── THE PROBLEM WE ARE SOLVING ───────── */}
-      <Section>
-        <div className="max-w-3xl">
-          <div>
+      <Section variant="loose">
+        <div className="grid gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20 lg:items-center">
+          {/* Visual — left: oversized number/stat */}
+          <div className="reveal order-2 lg:order-1">
+            <div
+              className="relative aspect-[4/5] w-full rounded-[var(--radius-xl)] overflow-hidden ring-1 ring-[var(--line)]"
+              style={{
+                background:
+                  "linear-gradient(160deg, #1a1f2c 0%, #0b0d12 60%, #1a2030 100%)",
+              }}
+            >
+              <div
+                aria-hidden
+                className="absolute inset-0"
+                style={{
+                  background:
+                    "radial-gradient(ellipse 600px 500px at 30% 30%, rgba(216,227,243,0.16), transparent 60%)",
+                }}
+              />
+              <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-8">
+                <div
+                  className="font-display font-semibold tracking-tight leading-none"
+                  style={{
+                    fontSize: "clamp(120px, 18vw, 220px)",
+                    background:
+                      "linear-gradient(180deg, #ffffff 0%, #c8d3e3 50%, #5a6878 100%)",
+                    WebkitBackgroundClip: "text",
+                    backgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    color: "transparent",
+                  }}
+                >
+                  80%
+                </div>
+                <div className="mt-4 text-xs uppercase tracking-[0.22em] text-white/60">
+                  Rejection rate
+                </div>
+                <p className="mt-6 max-w-xs text-sm text-white/70 text-pretty leading-relaxed">
+                  of demos that apply don't make the cut — every edition is
+                  curated for signal, not volume.
+                </p>
+              </div>
+              <div className="absolute bottom-5 left-6 right-6 flex items-center justify-between text-[10px] uppercase tracking-[0.2em] text-white/40">
+                <span>Quality over quantity</span>
+                <span>sensus.events</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Text — right */}
+          <div className="order-1 lg:order-2">
             <div className="reveal">
               <span className="eyebrow">The problem we are solving</span>
             </div>
@@ -297,19 +380,42 @@ export default function HomePage() {
         </div>
       </Section>
 
+      <SectionDivider />
+
       {/* ───────── STATS ───────── */}
-      <Section className="!py-14">
-        <div className="chrome-surface p-10 sm:p-14">
-          <div className="grid gap-8 grid-cols-2 lg:grid-cols-4 reveal-stagger">
+      <Section variant="loose">
+        <div className="relative">
+          {/* Oversized chrome S decoration */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute -top-10 -right-10 w-[420px] h-[420px] opacity-[0.06] hidden lg:block"
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/logo-s.png" alt="" aria-hidden className="w-full h-full object-contain" />
+          </div>
+
+          <div className="reveal">
+            <span className="eyebrow">By the numbers</span>
+          </div>
+
+          <h2
+            className="mt-6 max-w-2xl text-[var(--ink-900)] text-balance reveal"
+            style={{ fontSize: "clamp(32px, 4vw, 52px)", letterSpacing: "-0.03em" }}
+          >
+            Three years of curated gatherings.{" "}
+            <span className="chrome-text">Permanent archive.</span>
+          </h2>
+
+          <div className="mt-14 grid gap-10 grid-cols-2 lg:grid-cols-4 reveal-stagger">
             {stats.map((s) => (
-              <div key={s.label} className="text-center py-2">
+              <div key={s.label}>
                 <span
-                  className="block font-display font-semibold tracking-tight text-[var(--ink-900)] leading-none mb-2"
-                  style={{ fontSize: "clamp(32px, 4vw, 48px)" }}
+                  className="block font-display font-semibold tracking-tight text-[var(--ink-900)] leading-none mb-3"
+                  style={{ fontSize: "clamp(40px, 5vw, 64px)" }}
                 >
                   {s.value}
                 </span>
-                <span className="text-xs uppercase tracking-[0.04em] text-[var(--ink-500)]">
+                <span className="text-xs uppercase tracking-[0.06em] text-[var(--ink-500)]">
                   {s.label}
                 </span>
               </div>
