@@ -242,31 +242,35 @@ export default function EventsPage() {
 
       {/* STAY IN THE LOOP */}
       <Section className="!pt-4">
-        <div className="chrome-surface text-center p-12 sm:p-16">
-          <span className="eyebrow">Stay in the loop</span>
-          <h2 className="mt-4 font-display text-2xl sm:text-3xl font-semibold text-[var(--ink-900)] text-balance">
-            Don't miss the next edition
-          </h2>
-          <p className="mt-4 max-w-xl mx-auto text-[var(--ink-500)] text-pretty">
-            Be the first to know where SENSUS goes next.
-          </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <Link
-              href={siteConfig.social.x}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-primary"
-            >
-              Follow on X
-            </Link>
-            <Link
-              href="https://luma.com/sensus"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-primary"
-            >
-              Follow on Luma
-            </Link>
+        <div className="chrome-surface p-10 sm:p-12">
+          <div className="grid gap-8 sm:gap-12 md:grid-cols-[1.4fr_1fr] md:items-center">
+            <div className="flex flex-col items-start gap-3 text-left">
+              <span className="eyebrow">Stay in the loop</span>
+              <h2 className="font-display text-2xl sm:text-3xl font-semibold text-[var(--ink-900)] text-balance">
+                Don't miss the next edition
+              </h2>
+              <p className="text-[var(--ink-500)] text-pretty">
+                Be the first to know where SENSUS goes next.
+              </p>
+            </div>
+            <div className="flex flex-col gap-3">
+              <Link
+                href={siteConfig.social.x}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-primary w-full"
+              >
+                Follow on X
+              </Link>
+              <Link
+                href="https://luma.com/sensus"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-primary w-full"
+              >
+                Follow on Luma
+              </Link>
+            </div>
           </div>
         </div>
       </Section>
