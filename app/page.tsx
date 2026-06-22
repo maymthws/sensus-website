@@ -322,22 +322,51 @@ export default async function HomePage() {
         </div>
       </Section>
 
-      {/* ───────── BACKED BY (marquee) ───────── */}
-      <Section className="!py-12">
-        <div className="text-center mb-10 reveal">
-          <span className="eyebrow">Backed by</span>
-          <p
-            className="mt-5 mx-auto max-w-2xl text-pretty leading-snug"
-            style={{ fontSize: "clamp(20px, 2.4vw, 30px)", fontWeight: 600, letterSpacing: "-0.015em" }}
-          >
-            <span className="chrome-text">Partners</span>{" "}
-            <span className="text-[var(--ink-900)]">
-              who help make{" "}
-              <strong className="font-semibold">SENSUS happen.</strong>
-            </span>
-          </p>
+      {/* ───────── BACKED BY A PROVEN TEAM ───────── */}
+      <Section className="!py-16">
+        <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+          {/* Left: Headline */}
+          <div className="reveal">
+            <h2
+              className="text-[var(--ink-900)] uppercase tracking-tight text-balance"
+              style={{
+                fontSize: "clamp(40px, 6vw, 76px)",
+                letterSpacing: "-0.035em",
+                lineHeight: 1.0,
+                fontWeight: 600,
+              }}
+            >
+              Backed by
+              <br />
+              a proven team
+            </h2>
+          </div>
+
+          {/* Right: Stats grid */}
+          <div className="grid grid-cols-2 gap-y-10 gap-x-6 reveal-stagger">
+            {[
+              { value: "30+", label: "Event Hosted" },
+              { value: "1500+", label: "Community Participants" },
+              { value: "5+", label: "Event Formats" },
+              { value: "10+", label: "Web3 Ecosystems" },
+            ].map((s) => (
+              <div key={s.label}>
+                <span
+                  className="block font-display font-semibold tracking-tight text-[var(--ink-900)] leading-none mb-3"
+                  style={{ fontSize: "clamp(48px, 6vw, 76px)" }}
+                >
+                  {s.value}
+                </span>
+                <span className="text-sm sm:text-base text-[var(--ink-500)] text-pretty">
+                  {s.label}
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
-        <div className="relative overflow-hidden border-y border-[var(--line)] bg-white/30 backdrop-blur-sm py-8 -mx-4 sm:-mx-6 lg:-mx-8">
+
+        {/* Partner marquee strip */}
+        <div className="relative overflow-hidden border-y border-[var(--line)] bg-white/30 backdrop-blur-sm py-8 mt-16 -mx-4 sm:-mx-6 lg:-mx-8">
           {/* Edge fade masks */}
           <div
             aria-hidden
