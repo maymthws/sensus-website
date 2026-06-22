@@ -209,7 +209,7 @@ export default function EventsPage() {
             Don't miss the next edition
           </h2>
           <p className="mt-4 max-w-xl mx-auto text-[var(--ink-500)] text-pretty">
-            Follow on X for the live announcement, or drop us a line to get on the partner list.
+            ติดตาม
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Link
@@ -220,8 +220,13 @@ export default function EventsPage() {
             >
               Follow on X
             </Link>
-            <Link href="/contact" className="btn btn-ghost">
-              Get on the list
+            <Link
+              href={featured.lumaUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-ghost"
+            >
+              Follow on Luma
             </Link>
           </div>
         </div>
