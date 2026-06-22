@@ -177,35 +177,129 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* ───────── HOW IT WORKS ───────── */}
+      {/* ───────── THE PROBLEM WE ARE SOLVING ───────── */}
       <Section>
-        <SectionHeading
-          align="center"
-          eyebrow="How a SENSUS night runs"
-          title={
-            <>
-              Three hours. <span className="chrome-text">Eight demos.</span> One feed.
-            </>
-          }
-        />
+        <div className="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+          <div>
+            <div className="reveal">
+              <span className="eyebrow">The problem we are solving</span>
+            </div>
+            <h2
+              className="mt-6 text-[var(--ink-900)] text-balance reveal"
+              style={{
+                fontSize: "clamp(36px, 5vw, 60px)",
+                letterSpacing: "-0.035em",
+                lineHeight: 1.05,
+              }}
+            >
+              Ecosystems need a spotlight for{" "}
+              <span className="chrome-text">their best builders</span>
+            </h2>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 reveal-stagger max-w-[1100px] mx-auto">
-          {[
-            { n: "01", title: "Apply", body: "Tell us what you're building. Two-minute video, one-paragraph why-now, that's it." },
-            { n: "02", title: "Get selected", body: "Our curators pick the lineup. We pair you with a producer for sound, light, and run-of-show." },
-            { n: "03", title: "Ship the demo", body: "Ten minutes on stage, live product, in front of an audience of investors, operators, and fellow builders." },
-            { n: "04", title: "Hit YouTube", body: "We cut, color, and publish the recording within 72 hours. Link in hand, share it forever." },
-          ].map((step) => (
-            <article key={step.n} className="glass-card p-7 text-center">
-              <div className="chrome-text font-display font-semibold leading-none" style={{ fontSize: 56 }}>
-                {step.n}
+            <div className="mt-12 space-y-8 reveal-stagger">
+              <div className="flex gap-5">
+                <div className="shrink-0 w-12 h-12 rounded-md bg-[var(--bg-tint)] ring-1 ring-[var(--line)] flex items-center justify-center text-sm font-semibold text-[var(--ink-700)]">
+                  01
+                </div>
+                <p className="text-base sm:text-lg text-[var(--ink-700)] text-pretty leading-relaxed">
+                  <strong className="text-[var(--ink-900)] font-semibold">Ecosystem Visibility —</strong>{" "}
+                  Major ecosystems lack an intimate, high-signal stage to showcase
+                  their top-tier projects and key initiatives to a curated audience.
+                </p>
               </div>
-              <h4 className="mt-4 text-[var(--ink-900)]">{step.title}</h4>
-              <p className="mt-3 text-sm text-[var(--ink-500)] text-pretty leading-relaxed">
-                {step.body}
-              </p>
-            </article>
-          ))}
+
+              <div className="flex gap-5">
+                <div className="shrink-0 w-12 h-12 rounded-md bg-[var(--bg-tint)] ring-1 ring-[var(--line)] flex items-center justify-center text-sm font-semibold text-[var(--ink-700)]">
+                  02
+                </div>
+                <p className="text-base sm:text-lg text-[var(--ink-700)] text-pretty leading-relaxed">
+                  <strong className="text-[var(--ink-900)] font-semibold">Proof of Progress —</strong>{" "}
+                  Emerging builders often lack a professional platform to demonstrate
+                  real-world technical progress to strategic partners and potential allies.
+                </p>
+              </div>
+
+              <div className="flex gap-5">
+                <div
+                  className="shrink-0 w-12 h-12 rounded-md flex items-center justify-center text-sm font-semibold text-white"
+                  style={{
+                    background:
+                      "linear-gradient(180deg, #1a1f2c 0%, #0b0d12 100%)",
+                    boxShadow:
+                      "inset 0 1px 0 rgba(255,255,255,0.1), 0 4px 14px rgba(20,28,50,0.15)",
+                  }}
+                >
+                  03
+                </div>
+                <p className="text-base sm:text-lg text-[var(--ink-700)] text-pretty leading-relaxed">
+                  <strong className="text-[var(--ink-900)] font-semibold">
+                    SENSUS fills this gap: A shared stage connecting strategic partners
+                    with top builders, amplified by premium content.
+                  </strong>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Visual: speaker placeholder styled to match slide aesthetic */}
+          <div className="reveal">
+            <div
+              className="relative aspect-[4/3] w-full rounded-[var(--radius-lg)] overflow-hidden ring-1 ring-[var(--line)]"
+              style={{
+                background:
+                  "linear-gradient(135deg, #1a1f2c 0%, #0b0d12 50%, #1a2030 100%)",
+              }}
+            >
+              {/* Subtle radial spot */}
+              <div
+                aria-hidden
+                className="absolute inset-0"
+                style={{
+                  background:
+                    "radial-gradient(ellipse 600px 400px at 40% 40%, rgba(200,211,227,0.18), transparent 60%)",
+                }}
+              />
+              {/* Stage figure silhouette */}
+              <div
+                aria-hidden
+                className="absolute left-[18%] bottom-0 w-[55%] h-[80%]"
+                style={{
+                  background:
+                    "radial-gradient(ellipse 60% 50% at 50% 30%, rgba(60,72,90,0.6) 0%, transparent 70%)",
+                }}
+              />
+              {/* Floating meta info chips (right side, like slide) */}
+              <div className="absolute right-5 top-1/2 -translate-y-1/2 flex flex-col gap-3 max-w-[55%]">
+                {[
+                  { icon: "⇅", text: "Funding rate arbitrage\nacross venues" },
+                  { icon: "⊞", text: "Simultaneous ecosystem\npoint farming" },
+                  { icon: "▦", text: "Capital efficiency\nacross multiple venues" },
+                  { icon: "≈", text: "Real-time spreads,\nAPR, and opportunities" },
+                ].map((chip) => (
+                  <div
+                    key={chip.text}
+                    className="flex items-start gap-2.5 px-3 py-2 rounded-full backdrop-blur-md"
+                    style={{
+                      background: "rgba(255,255,255,0.06)",
+                      border: "1px solid rgba(255,255,255,0.12)",
+                    }}
+                  >
+                    <span className="shrink-0 w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-xs text-white/80">
+                      {chip.icon}
+                    </span>
+                    <span className="text-xs text-white/80 leading-snug whitespace-pre-line">
+                      {chip.text}
+                    </span>
+                  </div>
+                ))}
+              </div>
+              {/* Bottom: mozi.finance-style caption */}
+              <div className="absolute bottom-4 left-5 right-5 flex items-center justify-between text-[10px] uppercase tracking-[0.2em] text-white/40">
+                <span>From the SENSUS stage</span>
+                <span>sensus.events</span>
+              </div>
+            </div>
+          </div>
         </div>
       </Section>
 
