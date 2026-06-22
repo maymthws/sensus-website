@@ -224,7 +224,7 @@ export default function EventsPage() {
               href="https://luma.com/sensus"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn-ghost"
+              className="btn btn-primary"
             >
               Follow on Luma
             </Link>
