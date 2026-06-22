@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import type { Metadata } from "next";
 import { Section, SectionHeading } from "@/components/Section";
 import { siteConfig } from "@/lib/config";
@@ -180,7 +179,7 @@ export default function HomePage() {
 
       {/* ───────── THE PROBLEM WE ARE SOLVING ───────── */}
       <Section>
-        <div className="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+        <div className="max-w-3xl">
           <div>
             <div className="reveal">
               <span className="eyebrow">The problem we are solving</span>
@@ -238,130 +237,6 @@ export default function HomePage() {
                     with top builders, amplified by premium content.
                   </strong>
                 </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Visual: aurora gradient + glass surface + SENSUS topics */}
-          <div className="reveal">
-            <div
-              className="relative aspect-[4/3] w-full rounded-[var(--radius-lg)] overflow-hidden ring-1 ring-[var(--line)]"
-              style={{
-                background:
-                  "linear-gradient(135deg, #d8e3f3 0%, #e8d8f3 50%, #d3e9e4 100%)",
-              }}
-            >
-              {/* Aurora blobs (light, on light bg) */}
-              <div
-                aria-hidden
-                className="absolute inset-0"
-                style={{
-                  background:
-                    "radial-gradient(ellipse 500px 400px at 25% 30%, rgba(107,141,181,0.35), transparent 60%), radial-gradient(ellipse 500px 400px at 75% 70%, rgba(184,155,196,0.30), transparent 60%)",
-                }}
-              />
-
-              {/* Top: brand mark */}
-              <div className="absolute top-6 left-6 right-6 flex items-center justify-between">
-                <div className="flex items-center gap-2.5">
-                  <Image
-                    src="/logo-s.png"
-                    alt="SENSUS"
-                    width={32}
-                    height={32}
-                    className="w-8 h-8 object-contain"
-                  />
-                  <span className="text-sm font-display font-semibold tracking-[0.12em] text-[var(--ink-900)]">
-                    SENSUS
-                  </span>
-                </div>
-                <span className="text-[10px] uppercase tracking-[0.2em] text-[var(--ink-500)]">
-                  vol. 03
-                </span>
-              </div>
-
-              {/* Center stage: focus rings + spotlight effect */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="relative w-56 h-56 sm:w-64 sm:h-64">
-                  {/* Outer ring */}
-                  <div
-                    className="absolute inset-0 rounded-full border"
-                    style={{ borderColor: "rgba(255,255,255,0.5)" }}
-                  />
-                  {/* Middle ring */}
-                  <div
-                    className="absolute inset-4 rounded-full border"
-                    style={{ borderColor: "rgba(255,255,255,0.6)" }}
-                  />
-                  {/* Inner ring */}
-                  <div
-                    className="absolute inset-10 rounded-full border"
-                    style={{ borderColor: "rgba(255,255,255,0.75)" }}
-                  />
-                  {/* Glass center */}
-                  <div
-                    className="absolute inset-16 rounded-full backdrop-blur-md flex items-center justify-center"
-                    style={{
-                      background: "rgba(255,255,255,0.55)",
-                      border: "1px solid rgba(255,255,255,0.7)",
-                      boxShadow:
-                        "inset 0 1px 0 rgba(255,255,255,0.9), 0 8px 24px rgba(20,28,50,0.08)",
-                    }}
-                  >
-                    <div className="text-center">
-                      <div className="chrome-text font-display font-semibold text-2xl leading-none">
-                        10
-                      </div>
-                      <div className="mt-1 text-[9px] uppercase tracking-[0.2em] text-[var(--ink-500)]">
-                        min demos
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Topic chips around the rings */}
-              <div className="absolute top-1/2 left-4 -translate-y-1/2 flex flex-col gap-2">
-                {[
-                  { label: "AI agents", icon: "✦" },
-                  { label: "DePIN", icon: "◈" },
-                ].map((t) => (
-                  <span
-                    key={t.label}
-                    className="tag-pill flex items-center gap-1.5 backdrop-blur-md"
-                    style={{
-                      background: "rgba(255,255,255,0.65)",
-                      border: "1px solid rgba(255,255,255,0.7)",
-                    }}
-                  >
-                    <span className="chrome-text text-sm leading-none">{t.icon}</span>
-                    <span>{t.label}</span>
-                  </span>
-                ))}
-              </div>
-              <div className="absolute top-1/2 right-4 -translate-y-1/2 flex flex-col gap-2 items-end">
-                {[
-                  { label: "ZK proofs", icon: "◉" },
-                  { label: "RWA", icon: "◇" },
-                ].map((t) => (
-                  <span
-                    key={t.label}
-                    className="tag-pill flex items-center gap-1.5 backdrop-blur-md"
-                    style={{
-                      background: "rgba(255,255,255,0.65)",
-                      border: "1px solid rgba(255,255,255,0.7)",
-                    }}
-                  >
-                    <span className="chrome-text text-sm leading-none">{t.icon}</span>
-                    <span>{t.label}</span>
-                  </span>
-                ))}
-              </div>
-
-              {/* Bottom: caption */}
-              <div className="absolute bottom-5 left-6 right-6 flex items-center justify-between text-[10px] uppercase tracking-[0.2em] text-[var(--ink-500)]">
-                <span>Curated for what's next</span>
-                <span>sensus.events</span>
               </div>
             </div>
           </div>
