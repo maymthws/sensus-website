@@ -196,9 +196,6 @@ export default function EventsPage() {
             </a>
           ))}
         </div>
-        <p className="mt-6 text-center text-xs text-[var(--ink-400)]">
-          Gallery placeholder · opens Luma event page for full album
-        </p>
       </Section>
 
       {/* STAY IN THE LOOP */}
