@@ -45,7 +45,7 @@ export default function EventsPage() {
       {/* Page header */}
       <section className="pt-40 sm:pt-48 pb-12 text-center">
         <div className="container-x">
-          <span className="eyebrow reveal">Editions</span>
+          <span className="eyebrow reveal">Events</span>
           <h1 className="mt-6 reveal">
             <span className="text-[var(--ink-900)]">SENSUS</span>{" "}
             <span className="chrome-text">calendar.</span>
