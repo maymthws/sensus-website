@@ -215,6 +215,40 @@ export default async function HomePage() {
         </div>
       </Section>
 
+      {/* ───────── VIDEO HIGHLIGHT ───────── */}
+      <Section className="!py-16">
+        <div className="max-w-3xl mb-10 reveal">
+          <span className="eyebrow">Watch the recap</span>
+          <h2 className="mt-4 font-display font-semibold text-[var(--ink-900)] text-balance">
+            <span className="chrome-text">Inside</span>{" "}
+            the SENSUS BKK Edition
+          </h2>
+          <p className="mt-4 text-base sm:text-lg text-[var(--ink-500)] text-pretty">
+            Step into the room where the conversations happened.
+          </p>
+        </div>
+
+        <div className="reveal">
+          <div
+            className="relative aspect-video w-full rounded-[var(--radius-lg)] overflow-hidden ring-1 ring-[var(--line)] shadow-glass"
+            style={{
+              background:
+                "linear-gradient(135deg, #1a1f2c 0%, #0b0d12 100%)",
+            }}
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/ZvP-yDwpfho?rel=0&modestbranding=1&playsinline=1"
+              title="Road To SENSUS: BKK Edition Video Recap"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="absolute inset-0 w-full h-full"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </Section>
+
       {/* ───────── FEATURED SPOTLIGHT ───────── */}
       <Section>
         {(() => {
