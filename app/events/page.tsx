@@ -51,8 +51,9 @@ export default function EventsPage() {
             <span className="chrome-text">calendar.</span>
           </h1>
           <p className="mt-6 max-w-2xl mx-auto text-lg text-[var(--ink-500)] text-pretty leading-relaxed reveal">
-            A focused calendar of curated gatherings. Every edition is small,
-            every demo is recorded, every recording is public.
+            A city-by-city series of curated gatherings for the people shaping Web3.
+            <br />
+            Small rooms, meaningful conversations, and ideas shared beyond the room.
           </p>
         </div>
       </section>
