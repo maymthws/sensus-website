@@ -80,10 +80,6 @@ export default function EventsPage() {
             <div>
               <div className="flex flex-wrap items-center gap-2 mb-4">
                 <span className="tag-pill">BKK Edition</span>
-                <span className="tag-pill">{featured.theme}</span>
-                {featured.capacity && (
-                  <span className="text-xs text-[var(--ink-500)]">· {featured.capacity}</span>
-                )}
               </div>
               <h2 className="text-[var(--ink-900)] text-balance">
                 {featured.title}
