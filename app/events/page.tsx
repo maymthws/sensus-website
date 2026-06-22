@@ -30,8 +30,15 @@ function formatEventTime(iso: string) {
 export default function EventsPage() {
   // Always show the single featured event (BKK Edition)
   const featured = events[0];
-  // Luma gallery: duplicate cover image as a faux gallery (1 event = repeat 6×)
-  const galleryItems = Array.from({ length: 6 });
+  // Gallery: real event photos (3:2 landscape, optimized 1600w)
+  const galleryItems = [
+    { src: "/gallery/gallery-01.jpg", alt: "SENSUS BKK Edition — opening keynote on the Community slide" },
+    { src: "/gallery/gallery-02.jpg", alt: "SENSUS BKK Edition — wide shot of the full room" },
+    { src: "/gallery/gallery-03.jpg", alt: "SENSUS BKK Edition — group photo with partners and attendees" },
+    { src: "/gallery/gallery-04.jpg", alt: "SENSUS BKK Edition — Project Spotlight stage" },
+    { src: "/gallery/gallery-05.jpg", alt: "SENSUS BKK Edition — networking in the room" },
+    { src: "/gallery/gallery-06.jpg", alt: "SENSUS BKK Edition — sponsor booth and check-in" },
+  ];
 
   return (
     <>
@@ -166,18 +173,18 @@ export default function EventsPage() {
         </div>
 
         <div className="grid gap-3 grid-cols-2 sm:grid-cols-3 reveal-stagger">
-          {galleryItems.map((_, i) => (
+          {galleryItems.map((item, i) => (
             <a
-              key={i}
+              key={item.src}
               href={featured.lumaUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative aspect-square rounded-[var(--radius-md)] overflow-hidden ring-1 ring-[var(--line)] block"
+              className="group relative aspect-[3/2] rounded-[var(--radius-md)] overflow-hidden ring-1 ring-[var(--line)] block"
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={featured.coverImage}
-                alt={`${featured.title} — frame ${i + 1}`}
+                src={item.src}
+                alt={item.alt}
                 loading="lazy"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
