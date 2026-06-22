@@ -318,6 +318,60 @@ export default function HomePage() {
         </div>
       </Section>
 
+      {/* ───────── BACKED BY ───────── */}
+      <Section className="!py-16">
+        <div className="text-center mb-10 reveal">
+          <span className="eyebrow">Backed by</span>
+          <p className="mt-3 text-sm text-[var(--ink-500)] text-pretty">
+            Partners who help make SENSUS happen.
+          </p>
+        </div>
+        <div className="grid gap-8 grid-cols-1 sm:grid-cols-3 items-center justify-items-center reveal-stagger">
+          <a
+            href="https://contributiondao.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="ContributionDAO"
+            className="group flex items-center justify-center h-20 w-full max-w-[260px] opacity-70 hover:opacity-100 transition-opacity"
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/partner-contributiondao.png"
+              alt="ContributionDAO"
+              className="max-h-full max-w-full object-contain"
+            />
+          </a>
+          <a
+            href="https://www.bitget.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Bitget × Blockchain4Youth"
+            className="group flex items-center justify-center h-20 w-full max-w-[260px] opacity-70 hover:opacity-100 transition-opacity"
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/partner-bitget.png"
+              alt="Bitget × Blockchain4Youth"
+              className="max-h-full max-w-full object-contain"
+            />
+          </a>
+          <a
+            href="https://mypal.io"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="mypal"
+            className="group flex items-center justify-center h-20 w-full max-w-[260px] opacity-70 hover:opacity-100 transition-opacity"
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/partner-mypal.png"
+              alt="mypal"
+              className="max-h-full max-w-full object-contain"
+            />
+          </a>
+        </div>
+      </Section>
+
       {/* Next edition teaser handled in stats block above — no CTA section */}
     </>
   );

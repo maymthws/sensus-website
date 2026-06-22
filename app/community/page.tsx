@@ -98,18 +98,52 @@ export default function CommunityPage() {
           }
           description="SENSUS is supported by a growing group of partners who share the mission — curated, recorded, high-signal gatherings for the Web3 ecosystem."
         />
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 reveal-stagger">
-          {Array.from({ length: 6 }).map((_, i) => (
-            <div
-              key={i}
-              className="aspect-[5/2] glass-card flex items-center justify-center text-[var(--ink-400)] text-xs uppercase tracking-[0.2em]"
-            >
-              Partner {i + 1}
-            </div>
-          ))}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 items-center justify-items-center reveal-stagger">
+          <a
+            href="https://contributiondao.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="ContributionDAO"
+            className="group flex items-center justify-center h-24 w-full max-w-[280px] glass-card p-6 opacity-80 hover:opacity-100 transition-opacity"
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/partner-contributiondao.png"
+              alt="ContributionDAO"
+              className="max-h-full max-w-full object-contain"
+            />
+          </a>
+          <a
+            href="https://www.bitget.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Bitget × Blockchain4Youth"
+            className="group flex items-center justify-center h-24 w-full max-w-[280px] glass-card p-6 opacity-80 hover:opacity-100 transition-opacity"
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/partner-bitget.png"
+              alt="Bitget × Blockchain4Youth"
+              className="max-h-full max-w-full object-contain"
+            />
+          </a>
+          <a
+            href="https://mypal.io"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="mypal"
+            className="group flex items-center justify-center h-24 w-full max-w-[280px] glass-card p-6 opacity-80 hover:opacity-100 transition-opacity"
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/partner-mypal.png"
+              alt="mypal"
+              className="max-h-full max-w-full object-contain"
+            />
+          </a>
         </div>
         <p className="mt-6 text-xs text-[var(--ink-400)]">
-          Partner logos coming soon. Want to back the next edition?{" "}
+          Want to back the next edition?{" "}
           <Link href="/contact" className="text-[var(--ink-700)] hover:text-[var(--ink-900)] underline underline-offset-4">
             Get in touch
           </Link>
