@@ -324,40 +324,30 @@ export default async function HomePage() {
 
       {/* ───────── BACKED BY A PROVEN TEAM ───────── */}
       <Section className="!py-16">
-        <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
-          {/* Left: Headline */}
-          <div className="reveal">
-            <h2
-              className="text-[var(--ink-900)] uppercase tracking-tight text-balance"
-              style={{
-                fontSize: "clamp(40px, 6vw, 76px)",
-                letterSpacing: "-0.035em",
-                lineHeight: 1.0,
-                fontWeight: 600,
-              }}
-            >
-              Backed by
-              <br />
-              a proven team
-            </h2>
-          </div>
+        <div className="max-w-3xl mb-10 reveal">
+          <span className="eyebrow">Backed by a proven team</span>
+          <h2 className="mt-4 font-display font-semibold text-[var(--ink-900)] text-balance">
+            <span className="chrome-text">Numbers</span> that speak for themselves.
+          </h2>
+        </div>
 
-          {/* Right: Stats grid */}
-          <div className="grid grid-cols-2 gap-y-10 gap-x-6 reveal-stagger">
+        {/* Stats card — matches the original 28 / 3 / 240K+ / 42M+ block above */}
+        <div className="chrome-surface p-10 sm:p-14">
+          <div className="grid gap-10 grid-cols-2 lg:grid-cols-4 reveal-stagger">
             {[
               { value: "30+", label: "Event Hosted" },
               { value: "1500+", label: "Community Participants" },
               { value: "5+", label: "Event Formats" },
               { value: "10+", label: "Web3 Ecosystems" },
             ].map((s) => (
-              <div key={s.label}>
+              <div key={s.label} className="text-center">
                 <span
-                  className="block font-display font-semibold tracking-tight text-[var(--ink-900)] leading-none mb-3"
-                  style={{ fontSize: "clamp(48px, 6vw, 76px)" }}
+                  className="block font-display font-semibold tracking-tight text-[var(--ink-900)] leading-none mb-2"
+                  style={{ fontSize: "clamp(40px, 5vw, 64px)" }}
                 >
                   {s.value}
                 </span>
-                <span className="text-sm sm:text-base text-[var(--ink-500)] text-pretty">
+                <span className="text-xs uppercase tracking-[0.06em] text-[var(--ink-500)]">
                   {s.label}
                 </span>
               </div>
