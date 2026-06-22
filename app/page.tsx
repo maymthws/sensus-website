@@ -327,72 +327,80 @@ export default async function HomePage() {
         </div>
 
         {/* Partner marquee strip */}
-        <div className="relative overflow-hidden border-y border-[var(--line)] bg-white/30 backdrop-blur-sm py-8 mt-16 -mx-4 sm:-mx-6 lg:-mx-8">
-          {/* Edge fade masks */}
-          <div
-            aria-hidden
-            className="pointer-events-none absolute inset-y-0 left-0 w-24 z-10"
-            style={{
-              background:
-                "linear-gradient(to right, white, transparent)",
-            }}
-          />
-          <div
-            aria-hidden
-            className="pointer-events-none absolute inset-y-0 right-0 w-24 z-10"
-            style={{
-              background:
-                "linear-gradient(to left, white, transparent)",
-            }}
-          />
-          <div className="marquee-track flex items-center gap-10 px-8 whitespace-nowrap animate-marquee">
-            {[1, 2, 3, 4].map((dup) => (
-              <div key={dup} className="flex items-center gap-10 shrink-0" aria-hidden={dup > 1}>
-                <a
-                  href="https://contributiondao.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="ContributionDAO"
-                  className="opacity-70 hover:opacity-100 transition-opacity shrink-0"
-                >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src="/partner-contributiondao.png"
-                    alt="ContributionDAO"
-                    className="h-12 w-auto object-contain"
-                  />
-                </a>
-                <a
-                  href="https://www.bitget.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Bitget × Blockchain4Youth"
-                  className="opacity-70 hover:opacity-100 transition-opacity shrink-0"
-                >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src="/partner-bitget.png"
-                    alt="Bitget × Blockchain4Youth"
-                    className="h-12 w-auto object-contain"
-                  />
-                </a>
-                <a
-                  href="https://mypal.io"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="mypal"
-                  className="opacity-70 hover:opacity-100 transition-opacity shrink-0"
-                >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src="/partner-mypal.png"
-                    alt="mypal"
-                    className="h-12 w-auto object-contain"
-                  />
-                </a>
-              </div>
-            ))}
+        <div className="mt-16">
+          <div className="text-center mb-6 reveal">
+            <span className="eyebrow">Partners &amp; Supporters</span>
           </div>
+          <div className="relative overflow-hidden border-y border-[var(--line)] bg-white/30 backdrop-blur-sm py-8 -mx-4 sm:-mx-6 lg:-mx-8">
+            {/* Edge fade masks */}
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-y-0 left-0 w-24 z-10"
+              style={{
+                background:
+                  "linear-gradient(to right, white, transparent)",
+              }}
+            />
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-y-0 right-0 w-24 z-10"
+              style={{
+                background:
+                  "linear-gradient(to left, white, transparent)",
+              }}
+            />
+            <div className="marquee-track flex items-center gap-10 px-8 whitespace-nowrap animate-marquee">
+              {[1, 2, 3, 4].map((dup) => (
+                <div key={dup} className="flex items-center gap-10 shrink-0" aria-hidden={dup > 1}>
+                  <a
+                    href="https://contributiondao.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="ContributionDAO"
+                    className="opacity-70 hover:opacity-100 transition-opacity shrink-0"
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src="/partner-contributiondao.png"
+                      alt="ContributionDAO"
+                      className="h-12 w-auto object-contain"
+                    />
+                  </a>
+                  <a
+                    href="https://www.bitget.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Bitget × Blockchain4Youth"
+                    className="opacity-70 hover:opacity-100 transition-opacity shrink-0"
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src="/partner-bitget.png"
+                      alt="Bitget × Blockchain4Youth"
+                      className="h-12 w-auto object-contain"
+                    />
+                  </a>
+                  <a
+                    href="https://mypal.io"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="mypal"
+                    className="opacity-70 hover:opacity-100 transition-opacity shrink-0"
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src="/partner-mypal.png"
+                      alt="mypal"
+                      className="h-12 w-auto object-contain"
+                    />
+                  </a>
+                </div>
+              ))}
+            </div>
+          </div>
+          <p className="mt-6 text-center text-sm text-[var(--ink-500)] text-pretty reveal">
+            Built alongside the teams that make SENSUS happen.
+          </p>
         </div>
       </Section>
 
