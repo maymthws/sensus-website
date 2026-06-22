@@ -156,49 +156,24 @@ export default function EventsPage() {
         </article>
       </Section>
 
-      {/* AGENDA + HIGHLIGHTS — 2-column detail grid */}
+      {/* HIGHLIGHTS — single column */}
       <Section>
-        <div className="grid gap-10 lg:grid-cols-2">
-          {/* Agenda */}
+        <div className="max-w-3xl space-y-10">
           <div className="reveal">
-            <span className="eyebrow">Agenda</span>
-            <h3 className="mt-4 font-display text-2xl sm:text-3xl font-semibold text-[var(--ink-900)] text-balance">
-              Five hours. One shared stage.
-            </h3>
-            <ol className="mt-8 space-y-3">
-              {featured.agenda.map((a) => (
+            <span className="eyebrow">What to expect</span>
+            <ul className="mt-6 space-y-3">
+              {featured.highlights.map((h) => (
                 <li
-                  key={a.time + a.title}
-                  className="flex gap-4 items-start glass-card p-4"
+                  key={h}
+                  className="flex items-start gap-3 text-sm text-[var(--ink-700)] text-pretty leading-relaxed"
                 >
-                  <span className="shrink-0 font-display font-semibold text-[var(--ink-900)] text-base tracking-tight w-14">
-                    {a.time}
-                  </span>
-                  <span className="text-sm text-[var(--ink-700)] text-pretty leading-relaxed pt-0.5">
-                    {a.title}
-                  </span>
-                </li>
-              ))}
-            </ol>
-          </div>
-
-          {/* Highlights + Who should attend */}
-          <div className="space-y-10">
-            <div className="reveal">
-              <span className="eyebrow">What to expect</span>
-              <ul className="mt-6 space-y-3">
-                {featured.highlights.map((h) => (
-                  <li
-                    key={h}
-                    className="flex items-start gap-3 text-sm text-[var(--ink-700)] text-pretty leading-relaxed"
-                  >
-                    <svg
-                      className="mt-0.5 shrink-0"
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
+                  <svg
+                    className="mt-0.5 shrink-0"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
                       strokeWidth="2.4"
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -242,7 +217,6 @@ export default function EventsPage() {
                 ))}
               </div>
             </div>
-          </div>
         </div>
       </Section>
 
