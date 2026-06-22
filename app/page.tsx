@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
 import { Section, SectionHeading } from "@/components/Section";
 import { siteConfig } from "@/lib/config";
@@ -241,61 +242,125 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Visual: speaker placeholder styled to match slide aesthetic */}
+          {/* Visual: aurora gradient + glass surface + SENSUS topics */}
           <div className="reveal">
             <div
               className="relative aspect-[4/3] w-full rounded-[var(--radius-lg)] overflow-hidden ring-1 ring-[var(--line)]"
               style={{
                 background:
-                  "linear-gradient(135deg, #1a1f2c 0%, #0b0d12 50%, #1a2030 100%)",
+                  "linear-gradient(135deg, #d8e3f3 0%, #e8d8f3 50%, #d3e9e4 100%)",
               }}
             >
-              {/* Subtle radial spot */}
+              {/* Aurora blobs (light, on light bg) */}
               <div
                 aria-hidden
                 className="absolute inset-0"
                 style={{
                   background:
-                    "radial-gradient(ellipse 600px 400px at 40% 40%, rgba(200,211,227,0.18), transparent 60%)",
+                    "radial-gradient(ellipse 500px 400px at 25% 30%, rgba(107,141,181,0.35), transparent 60%), radial-gradient(ellipse 500px 400px at 75% 70%, rgba(184,155,196,0.30), transparent 60%)",
                 }}
               />
-              {/* Stage figure silhouette */}
-              <div
-                aria-hidden
-                className="absolute left-[18%] bottom-0 w-[55%] h-[80%]"
-                style={{
-                  background:
-                    "radial-gradient(ellipse 60% 50% at 50% 30%, rgba(60,72,90,0.6) 0%, transparent 70%)",
-                }}
-              />
-              {/* Floating meta info chips (right side, like slide) */}
-              <div className="absolute right-5 top-1/2 -translate-y-1/2 flex flex-col gap-3 max-w-[55%]">
-                {[
-                  { icon: "⇅", text: "Funding rate arbitrage\nacross venues" },
-                  { icon: "⊞", text: "Simultaneous ecosystem\npoint farming" },
-                  { icon: "▦", text: "Capital efficiency\nacross multiple venues" },
-                  { icon: "≈", text: "Real-time spreads,\nAPR, and opportunities" },
-                ].map((chip) => (
+
+              {/* Top: brand mark */}
+              <div className="absolute top-6 left-6 right-6 flex items-center justify-between">
+                <div className="flex items-center gap-2.5">
+                  <Image
+                    src="/logo-s.png"
+                    alt="SENSUS"
+                    width={32}
+                    height={32}
+                    className="w-8 h-8 object-contain"
+                  />
+                  <span className="text-sm font-display font-semibold tracking-[0.12em] text-[var(--ink-900)]">
+                    SENSUS
+                  </span>
+                </div>
+                <span className="text-[10px] uppercase tracking-[0.2em] text-[var(--ink-500)]">
+                  vol. 03
+                </span>
+              </div>
+
+              {/* Center stage: focus rings + spotlight effect */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="relative w-56 h-56 sm:w-64 sm:h-64">
+                  {/* Outer ring */}
                   <div
-                    key={chip.text}
-                    className="flex items-start gap-2.5 px-3 py-2 rounded-full backdrop-blur-md"
+                    className="absolute inset-0 rounded-full border"
+                    style={{ borderColor: "rgba(255,255,255,0.5)" }}
+                  />
+                  {/* Middle ring */}
+                  <div
+                    className="absolute inset-4 rounded-full border"
+                    style={{ borderColor: "rgba(255,255,255,0.6)" }}
+                  />
+                  {/* Inner ring */}
+                  <div
+                    className="absolute inset-10 rounded-full border"
+                    style={{ borderColor: "rgba(255,255,255,0.75)" }}
+                  />
+                  {/* Glass center */}
+                  <div
+                    className="absolute inset-16 rounded-full backdrop-blur-md flex items-center justify-center"
                     style={{
-                      background: "rgba(255,255,255,0.06)",
-                      border: "1px solid rgba(255,255,255,0.12)",
+                      background: "rgba(255,255,255,0.55)",
+                      border: "1px solid rgba(255,255,255,0.7)",
+                      boxShadow:
+                        "inset 0 1px 0 rgba(255,255,255,0.9), 0 8px 24px rgba(20,28,50,0.08)",
                     }}
                   >
-                    <span className="shrink-0 w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-xs text-white/80">
-                      {chip.icon}
-                    </span>
-                    <span className="text-xs text-white/80 leading-snug whitespace-pre-line">
-                      {chip.text}
-                    </span>
+                    <div className="text-center">
+                      <div className="chrome-text font-display font-semibold text-2xl leading-none">
+                        10
+                      </div>
+                      <div className="mt-1 text-[9px] uppercase tracking-[0.2em] text-[var(--ink-500)]">
+                        min demos
+                      </div>
+                    </div>
                   </div>
+                </div>
+              </div>
+
+              {/* Topic chips around the rings */}
+              <div className="absolute top-1/2 left-4 -translate-y-1/2 flex flex-col gap-2">
+                {[
+                  { label: "AI agents", icon: "✦" },
+                  { label: "DePIN", icon: "◈" },
+                ].map((t) => (
+                  <span
+                    key={t.label}
+                    className="tag-pill flex items-center gap-1.5 backdrop-blur-md"
+                    style={{
+                      background: "rgba(255,255,255,0.65)",
+                      border: "1px solid rgba(255,255,255,0.7)",
+                    }}
+                  >
+                    <span className="chrome-text text-sm leading-none">{t.icon}</span>
+                    <span>{t.label}</span>
+                  </span>
                 ))}
               </div>
-              {/* Bottom: mozi.finance-style caption */}
-              <div className="absolute bottom-4 left-5 right-5 flex items-center justify-between text-[10px] uppercase tracking-[0.2em] text-white/40">
-                <span>From the SENSUS stage</span>
+              <div className="absolute top-1/2 right-4 -translate-y-1/2 flex flex-col gap-2 items-end">
+                {[
+                  { label: "ZK proofs", icon: "◉" },
+                  { label: "RWA", icon: "◇" },
+                ].map((t) => (
+                  <span
+                    key={t.label}
+                    className="tag-pill flex items-center gap-1.5 backdrop-blur-md"
+                    style={{
+                      background: "rgba(255,255,255,0.65)",
+                      border: "1px solid rgba(255,255,255,0.7)",
+                    }}
+                  >
+                    <span className="chrome-text text-sm leading-none">{t.icon}</span>
+                    <span>{t.label}</span>
+                  </span>
+                ))}
+              </div>
+
+              {/* Bottom: caption */}
+              <div className="absolute bottom-5 left-6 right-6 flex items-center justify-between text-[10px] uppercase tracking-[0.2em] text-[var(--ink-500)]">
+                <span>Curated for what's next</span>
                 <span>sensus.events</span>
               </div>
             </div>

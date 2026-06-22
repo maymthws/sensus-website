@@ -51,7 +51,7 @@ export function Footer() {
         </div>
         <div className="mt-12 pt-6 border-t border-[var(--line)] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <p className="text-xs text-[var(--ink-400)]">
-            © {new Date().getFullYear()} SENSUS. A demo night for what's next.
+            © {new Date().getFullYear()} SENSUS. A curated gathering for what's next.
           </p>
           <div className="flex gap-2">
             <a
