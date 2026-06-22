@@ -177,48 +177,6 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* ───────── PILLARS ───────── */}
-      <Section>
-        <SectionHeading
-          align="center"
-          eyebrow="What SENSUS is"
-          title={
-            <>
-              A stage for what's next — <span className="chrome-text">without the noise.</span>
-            </>
-          }
-          description="No panels. No keynotes. No 40-minute sales pitches. Just curated builders, real products, and ten focused minutes each."
-        />
-
-        <div className="grid gap-6 md:grid-cols-3 reveal-stagger">
-          {[
-            {
-              tag: "01 · Curated",
-              title: "Projects that earned the slot",
-              body: "Every demo is reviewed and selected. The lineup is built around signal, not follower count — so what's on stage is what matters now.",
-            },
-            {
-              tag: "02 · Focused",
-              title: "Ten minutes, no slides",
-              body: "Forced brevity is a feature. Builders ship the live product, in front of a live audience, and they have to make it count.",
-            },
-            {
-              tag: "03 · Permanent",
-              title: "Recorded for the long tail",
-              body: "Every session is captured in studio quality and shipped to YouTube. The night ends, but the work keeps traveling.",
-            },
-          ].map((card) => (
-            <article key={card.title} className="glass-card p-7">
-              <span className="tag-pill">{card.tag}</span>
-              <h3 className="mt-5 text-[var(--ink-900)]">{card.title}</h3>
-              <p className="mt-2.5 text-sm text-[var(--ink-500)] text-pretty leading-relaxed">
-                {card.body}
-              </p>
-            </article>
-          ))}
-        </div>
-      </Section>
-
       {/* ───────── HOW IT WORKS ───────── */}
       <Section>
         <SectionHeading
