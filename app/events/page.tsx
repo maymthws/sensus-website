@@ -209,34 +209,31 @@ export default function EventsPage() {
 
         <div className="grid gap-6 sm:grid-cols-3 max-w-5xl mx-auto reveal-stagger">
           <div className="chrome-surface p-6 sm:p-8">
-            <div className="text-2xl mb-3" aria-hidden>🎯</div>
-            <h3 className="font-display text-lg font-semibold text-[var(--ink-900)]">Audience</h3>
-            <p className="mt-2 text-sm text-[var(--ink-500)] text-pretty leading-relaxed">
-              Funds, founders, builders, ecosystem leads.
+            <h3 className="font-display text-lg font-semibold text-[var(--ink-900)]">One Series, Multiple Markets</h3>
+            <p className="mt-3 text-sm text-[var(--ink-500)] text-pretty leading-relaxed">
+              Connect with the Web3 ecosystem across Bangkok, Vietnam, Seoul, and Singapore.
             </p>
           </div>
           <div className="chrome-surface p-6 sm:p-8">
-            <div className="text-2xl mb-3" aria-hidden>🪑</div>
-            <h3 className="font-display text-lg font-semibold text-[var(--ink-900)]">Format</h3>
-            <p className="mt-2 text-sm text-[var(--ink-500)] text-pretty leading-relaxed">
-              Curated, 30–80 seats, no keynote theatre.
+            <h3 className="font-display text-lg font-semibold text-[var(--ink-900)]">Meaningful Exposure</h3>
+            <p className="mt-3 text-sm text-[var(--ink-500)] text-pretty leading-relaxed">
+              Create visibility through curated showcases, sponsor moments, and thoughtful brand integration.
             </p>
           </div>
           <div className="chrome-surface p-6 sm:p-8">
-            <div className="text-2xl mb-3" aria-hidden>📼</div>
-            <h3 className="font-display text-lg font-semibold text-[var(--ink-900)]">Reach</h3>
-            <p className="mt-2 text-sm text-[var(--ink-500)] text-pretty leading-relaxed">
-              Every demo recorded, every recording public — asynchronous shelf life.
+            <h3 className="font-display text-lg font-semibold text-[var(--ink-900)]">Momentum That Lasts</h3>
+            <p className="mt-3 text-sm text-[var(--ink-500)] text-pretty leading-relaxed">
+              Extend the conversation through content distribution, ecosystem follow-ups, and post-event visibility.
             </p>
           </div>
         </div>
 
-        <div className="mt-10 text-center reveal">
+        <div className="mt-12 text-center reveal">
           <a
             href="https://t.me/maycdao"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn btn-primary"
+            className="btn btn-primary btn-lg"
           >
             Become a sponsor <span className="arrow">→</span>
           </a>

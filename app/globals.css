@@ -281,6 +281,12 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
       inset 0 1px 0 rgba(255, 255, 255, 1),
       0 6px 20px rgba(20, 28, 50, 0.12);
   }
+  .btn-lg {
+    padding: 18px 36px;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+  }
   .btn-ghost {
     color: var(--ink-700);
     background: rgba(255, 255, 255, 0.5);
