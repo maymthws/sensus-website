@@ -55,8 +55,7 @@ export const events: EventItem[] = [
     capacity: "By application · free general admission",
     rsvpUrl: "https://luma.com/dauf89hl",
     lumaUrl: "https://luma.com/dauf89hl",
-    coverImage:
-      "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=1,anim=false,background=white,quality=75,width=1920,height=1920/uploads/th/aade6eae-c7cf-4a71-95dd-0298b690976f.png",
+    coverImage: "/event-bkk-cover.png",
     organizer: "ContributionDAO",
     sponsors: ["Bitget Academy", "Blockchain4Youth", "Mypal Pro"],
   },
