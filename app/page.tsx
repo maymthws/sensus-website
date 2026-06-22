@@ -320,10 +320,17 @@ export default function HomePage() {
 
       {/* ───────── BACKED BY (marquee) ───────── */}
       <Section className="!py-12">
-        <div className="text-center mb-8 reveal">
+        <div className="text-center mb-10 reveal">
           <span className="eyebrow">Backed by</span>
-          <p className="mt-3 text-sm text-[var(--ink-500)] text-pretty">
-            Partners who help make SENSUS happen.
+          <p
+            className="mt-5 mx-auto max-w-2xl text-pretty leading-snug"
+            style={{ fontSize: "clamp(20px, 2.4vw, 30px)", fontWeight: 600, letterSpacing: "-0.015em" }}
+          >
+            <span className="chrome-text">Partners</span>{" "}
+            <span className="text-[var(--ink-900)]">
+              who help make{" "}
+              <strong className="font-semibold">SENSUS happen.</strong>
+            </span>
           </p>
         </div>
         <div className="relative overflow-hidden border-y border-[var(--line)] bg-white/30 backdrop-blur-sm py-8 -mx-4 sm:-mx-6 lg:-mx-8">
@@ -344,9 +351,9 @@ export default function HomePage() {
                 "linear-gradient(to left, white, transparent)",
             }}
           />
-          <div className="marquee-track flex items-center gap-16 px-8 whitespace-nowrap animate-marquee">
-            {[1, 2].map((dup) => (
-              <div key={dup} className="flex items-center gap-16 shrink-0" aria-hidden={dup === 2}>
+          <div className="marquee-track flex items-center gap-10 px-8 whitespace-nowrap animate-marquee">
+            {[1, 2, 3, 4].map((dup) => (
+              <div key={dup} className="flex items-center gap-10 shrink-0" aria-hidden={dup > 1}>
                 <a
                   href="https://contributiondao.com"
                   target="_blank"
