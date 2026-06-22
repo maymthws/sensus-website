@@ -23,14 +23,6 @@ const marqueeTopics = [
   "Social graphs",
   "Dev tooling",
 ];
-
-const stats = [
-  { value: "28", label: "Demos shipped" },
-  { value: "3", label: "Editions · 2024–2025" },
-  { value: "240K+", label: "YouTube minutes watched" },
-  { value: "42M+", label: "Combined raised by alumni" },
-];
-
 export default async function HomePage() {
   return (
     <>
@@ -299,27 +291,6 @@ export default async function HomePage() {
             </>
           );
         })()}
-      </Section>
-
-      {/* ───────── STATS ───────── */}
-      <Section className="!py-14">
-        <div className="chrome-surface p-10 sm:p-14">
-          <div className="grid gap-8 grid-cols-2 lg:grid-cols-4 reveal-stagger">
-            {stats.map((s) => (
-              <div key={s.label} className="text-center py-2">
-                <span
-                  className="block font-display font-semibold tracking-tight text-[var(--ink-900)] leading-none mb-2"
-                  style={{ fontSize: "clamp(32px, 4vw, 48px)" }}
-                >
-                  {s.value}
-                </span>
-                <span className="text-xs uppercase tracking-[0.04em] text-[var(--ink-500)]">
-                  {s.label}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
       </Section>
 
       {/* ───────── BACKED BY A PROVEN TEAM ───────── */}
