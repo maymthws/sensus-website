@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { Section, SectionHeading } from "@/components/Section";
 import { siteConfig } from "@/lib/config";
+import { getFeaturedVideos } from "@/lib/youtube";
 
 export const metadata: Metadata = {
   title: "SENSUS — A curated gathering for the Web3 ecosystem",
@@ -23,27 +24,6 @@ const marqueeTopics = [
   "Dev tooling",
 ];
 
-const featuredDemos = [
-  {
-    title: "Aether — an agentic wallet that routes your intent",
-    speaker: "Lin Park · Co-founder",
-    tags: ["AI", "Wallet"],
-    bg: "linear-gradient(135deg, #1a1f2c, #2a3a55)",
-  },
-  {
-    title: "Nimbus — the social graph that doesn't sell you out",
-    speaker: "Diego Marin · CEO",
-    tags: ["Consumer", "Social"],
-    bg: "linear-gradient(135deg, #0b0d12, #1a2030)",
-  },
-  {
-    title: "Helix — sub-second finality for the next billion users",
-    speaker: "Anya Volkov · Co-founder",
-    tags: ["Blockchain", "L2"],
-    bg: "linear-gradient(135deg, #1a2030, #3a4a6a)",
-  },
-];
-
 const stats = [
   { value: "28", label: "Demos shipped" },
   { value: "3", label: "Editions · 2024–2025" },
@@ -51,7 +31,7 @@ const stats = [
   { value: "42M+", label: "Combined raised by alumni" },
 ];
 
-export default function HomePage() {
+export default async function HomePage() {
   return (
     <>
       {/* ───────── HERO ───────── */}
@@ -245,56 +225,80 @@ export default function HomePage() {
 
       {/* ───────── FEATURED SPOTLIGHT ───────── */}
       <Section>
-        <div className="flex flex-wrap items-end justify-between gap-6 mb-12 reveal">
-          <div className="max-w-xl">
-            <span className="eyebrow">From the spotlight</span>
-            <h2 className="mt-4 font-display text-[var(--ink-900)] text-balance">
-              Builders that hit our stage.
-            </h2>
-          </div>
-          <Link href="/spotlight" className="btn btn-ghost">
-            Browse all sessions <span className="arrow">→</span>
-          </Link>
-        </div>
-
-        <div className="grid gap-6 md:grid-cols-3 reveal-stagger">
-          {featuredDemos.map((demo) => (
-            <Link key={demo.title} href="/spotlight" className="block group">
-              <article className="glass-card overflow-hidden p-0">
-                <div
-                  className="relative aspect-video flex items-center justify-center text-[var(--chrome-3)] text-sm"
-                  style={{ background: demo.bg }}
+        {(() => {
+          const videos = getFeaturedVideos();
+          return (
+            <>
+              <div className="flex flex-wrap items-end justify-between gap-6 mb-12 reveal">
+                <div className="max-w-xl">
+                  <span className="eyebrow">From the spotlight</span>
+                  <h2 className="mt-4 font-display text-[var(--ink-900)] text-balance">
+                    Builders that hit our stage.
+                  </h2>
+                </div>
+                <a
+                  href={siteConfig.social.youtube}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-ghost"
                 >
-                  <span className="opacity-70 px-4 text-center font-medium">
-                    {demo.title.split(" — ")[0]}
-                  </span>
-                  <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-black/40 to-black/70 group-hover:from-black/50 group-hover:to-black/80 transition-all">
-                    <svg
-                      width="60"
-                      height="60"
-                      viewBox="0 0 24 24"
-                      fill="white"
-                      className="transition-transform group-hover:scale-110"
-                    >
-                      <path d="M8 5v14l11-7z" />
-                    </svg>
-                  </div>
-                </div>
-                <div className="p-6">
-                  <div className="flex flex-wrap gap-1.5 mb-3">
-                    {demo.tags.map((t) => (
-                      <span key={t} className="tag-pill">{t}</span>
-                    ))}
-                  </div>
-                  <h3 className="text-[var(--ink-900)] text-lg font-semibold leading-snug group-hover:text-[var(--ink-700)] transition-colors">
-                    {demo.title}
-                  </h3>
-                  <p className="mt-1.5 text-sm text-[var(--ink-500)]">{demo.speaker}</p>
-                </div>
-              </article>
-            </Link>
-          ))}
-        </div>
+                  Browse all sessions <span className="arrow">→</span>
+                </a>
+              </div>
+
+              <div className="grid gap-6 md:grid-cols-3 reveal-stagger">
+                {videos.map((v) => (
+                  <a
+                    key={v.id}
+                    href={v.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block group"
+                  >
+                    <article className="glass-card overflow-hidden p-0">
+                      <div className="relative aspect-video bg-[var(--ink-900)] overflow-hidden">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src={v.thumbnail}
+                          alt={v.title}
+                          loading="lazy"
+                          className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
+                        <div
+                          aria-hidden
+                          className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"
+                        />
+                        <div className="absolute inset-0 flex items-center justify-center opacity-90 group-hover:opacity-100 transition-opacity">
+                          <div className="w-14 h-14 rounded-full bg-white/15 backdrop-blur-md ring-1 ring-white/25 flex items-center justify-center transition-transform group-hover:scale-110">
+                            <svg
+                              width="18"
+                              height="18"
+                              viewBox="0 0 24 24"
+                              fill="white"
+                            >
+                              <path d="M8 5v14l11-7z" />
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="p-6">
+                        <h3 className="text-[var(--ink-900)] text-lg font-semibold leading-snug group-hover:chrome-text transition-colors">
+                          {v.title}
+                        </h3>
+                        <p className="mt-2 text-sm text-[var(--ink-500)]">
+                          {new Date(v.publishedAt).toLocaleDateString("en-US", {
+                            month: "long",
+                            year: "numeric",
+                          })}
+                        </p>
+                      </div>
+                    </article>
+                  </a>
+                ))}
+              </div>
+            </>
+          );
+        })()}
       </Section>
 
       {/* ───────── STATS ───────── */}

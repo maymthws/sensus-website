@@ -30,6 +30,35 @@ type YouTubeSearchResponse = {
 };
 
 /**
+ * Curated, hand-picked videos from the SENSUS YouTube channel.
+ * Bypasses the YouTube Data API — these stay on the homepage until
+ * the team updates this list. Order is shown left-to-right.
+ *
+ * To add or replace a video, simply swap the id. Thumbnails resolve
+ * to YouTube's CDN (i.ytimg.com) — no API key required.
+ */
+export function getFeaturedVideos(): YouTubeVideo[] {
+  const entries: Array<{
+    id: string;
+    title: string;
+    publishedAt: string;
+  }> = [
+    { id: "yP_qgmdS9qI", title: "SENSUS BKK: ContributionDAO", publishedAt: "2026-05-22T19:00:00Z" },
+    { id: "vdmViV4Z-dc", title: "SENSUS BKK: Mozi", publishedAt: "2026-05-22T19:00:00Z" },
+    { id: "A9oFv4UvQpg", title: "SENSUS BKK: Noodle.Fi", publishedAt: "2026-05-22T19:00:00Z" },
+  ];
+
+  return entries.map((e) => ({
+    id: e.id,
+    title: e.title,
+    description: "",
+    publishedAt: e.publishedAt,
+    thumbnail: `https://i.ytimg.com/vi/${e.id}/maxresdefault.jpg`,
+    url: `https://www.youtube.com/watch?v=${e.id}`,
+  }));
+}
+
+/**
  * Fetch the most recent uploads from the SENSUS YouTube channel.
  *
  * Falls back to an empty array (with a flag) when:
