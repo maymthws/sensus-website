@@ -133,7 +133,7 @@ export default function EventsPage() {
             {/* Right: cover image (clean) */}
             <div className="relative">
               <div
-                className="relative aspect-[4/5] w-full rounded-[var(--radius-lg)] overflow-hidden ring-1 ring-[var(--line)] shadow-glass"
+                className="relative aspect-square w-full rounded-[var(--radius-lg)] overflow-hidden ring-1 ring-[var(--line)] shadow-glass"
                 style={{
                   background:
                     "linear-gradient(135deg, #1a1f2c 0%, #0b0d12 100%)",
