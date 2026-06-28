@@ -190,21 +190,7 @@ export default async function SpotlightPage() {
               </a>
             ))}
           </div>
-        </Section>
-      )}
-
-      {/* CTA */}
-      <Section className="!pt-0">
-        <div className="chrome-surface text-center p-12 sm:p-16">
-          <span className="eyebrow">On YouTube</span>
-          <h2 className="mt-4 font-display text-[var(--ink-900)] text-balance">
-            Every demo, on the record.
-          </h2>
-          <p className="mt-4 max-w-xl mx-auto text-[var(--ink-500)] text-pretty">
-            Subscribe for full recordings, dropped within 72 hours of every
-            edition.
-          </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
+          <div className="mt-12 text-center">
             <Link
               href={siteConfig.social.youtube}
               target="_blank"
@@ -214,8 +200,8 @@ export default async function SpotlightPage() {
               Subscribe on YouTube <span className="arrow">→</span>
             </Link>
           </div>
-        </div>
-      </Section>
+        </Section>
+      )}
     </>
   );
 }
