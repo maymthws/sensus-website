@@ -43,9 +43,11 @@ export function getFeaturedVideos(): YouTubeVideo[] {
     title: string;
     publishedAt: string;
   }> = [
+    { id: "ZvP-yDwpfho", title: "Road to SENSUS: BKK Edition — Video Recap", publishedAt: "2026-05-25T19:00:00Z" },
     { id: "yP_qgmdS9qI", title: "SENSUS BKK: ContributionDAO", publishedAt: "2026-05-22T19:00:00Z" },
     { id: "vdmViV4Z-dc", title: "SENSUS BKK: Mozi", publishedAt: "2026-05-22T19:00:00Z" },
     { id: "A9oFv4UvQpg", title: "SENSUS BKK: Noodle.Fi", publishedAt: "2026-05-22T19:00:00Z" },
+    { id: "Pj5UoB8c4yE", title: "SENSUS BKK: Hashcut", publishedAt: "2026-05-22T19:00:00Z" },
   ];
 
   return entries.map((e) => ({
