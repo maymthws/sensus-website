@@ -48,8 +48,8 @@ export default async function SpotlightPage() {
             <span className="chrome-text">Spotlight.</span>
           </h1>
           <p className="mt-6 max-w-2xl mx-auto text-lg text-[var(--ink-500)] text-pretty leading-relaxed reveal">
-            Every demo we&rsquo;ve ever run, recorded and searchable. The full
-            archive lives on our YouTube channel.
+            Explore featured projects, product demos, and founder stories from
+            across our ecosystem&mdash;now available on YouTube.
           </p>
         </div>
       </section>
